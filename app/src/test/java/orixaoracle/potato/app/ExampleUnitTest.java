@@ -1,4 +1,4 @@
-package orixaoracle.potato.orixaoracle;
+package orixaoracle.potato.app;
 
 import org.junit.Test;
 
