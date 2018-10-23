@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -19,6 +21,7 @@ public class Perguntas extends AppCompatActivity {
     private int counter = 0;
     private int maxCounter;
     TextView mPergunta;
+    private OrixaDB db;
 
 
 
@@ -26,7 +29,14 @@ public class Perguntas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perguntas);
-        myOracle = new Oracle();
+        try {
+
+            InputStream inputStream = getResources().getAssets().open("orixas_caracteristica.csv");
+            db = new OrixaDB( inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        myOracle = new Oracle(db);
         respostas = new HashMap<>();
 
 

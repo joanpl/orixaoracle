@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -18,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
+        File rootDataDir = getFilesDir();
+
         Button button = (Button) findViewById(R.id.button_start);
 
         button.setText("Iniciar");
@@ -28,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 goToStartActivity();
             }
         } );
+
 
     }
 
