@@ -1,11 +1,13 @@
-package orixaoracle.potato.orixaoracle;
+package orixaoracle.potato.app;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 
 public class Perguntas extends AppCompatActivity {
@@ -13,7 +15,12 @@ public class Perguntas extends AppCompatActivity {
 
     private HashMap<String, Boolean> respostas;
     private Oracle myOracle;
-    private ArrayList<String> caracteristicas;
+    //private ArrayList<String> caracteristicas;
+    private int counter = 0;
+    private int maxCounter;
+    TextView mPergunta;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +29,50 @@ public class Perguntas extends AppCompatActivity {
         myOracle = new Oracle();
         respostas = new HashMap<>();
 
-        caracteristicas = new ArrayList<String>(myOracle.getAllCaracteristicas());
 
-        for (String caracteristica: caracteristicas) {
-            respostas.put(caracteristica, false);
-        }
+        mPergunta = (TextView) findViewById(R.id.caracteristica);
 
-        TextView mPergunta = (TextView) findViewById(R.id.caracteristica);
+        mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
 
-        mPergunta.setText(caracteristicas.get(0));
+        Button buttonYes = (Button) findViewById(R.id.sim);
+        buttonYes.setText("Sim");
+
+        Button buttonNo = (Button) findViewById(R.id.nao);
+        buttonNo.setText("Nao");
+
+        buttonYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sayYeah(true);
+            }
+        } );
+
+        buttonNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sayYeah(false);
+            }
+        } );
+
 
 
     }
+
+    private void sayYeah(boolean answer) {
+       myOracle.setAnswer(answer);
+
+       String next= myOracle.getNext();
+
+       if(!next.isEmpty()){
+            mPergunta.setText(next);
+        }
+        else {
+            Intent intent = new Intent(this, Results.class);
+            intent.putExtra("ANSWERS", myOracle.getResults());
+            startActivity(intent);
+
+        }
+
+    }
+
 }

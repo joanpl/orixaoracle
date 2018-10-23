@@ -7,10 +7,10 @@ import java.util.HashMap;
  * Created by jmpl on 10/23/18.
  */
 
-class Orixa {
+class Orixas {
 
 
-    public final static String  ELEGBARA = "Elgbara";
+    public final static String  ELEGBARA = "Elegbara";
     public final static String  OGUM = "Ogum";
     public final static String  XANGO = "Xango";
     public final static String  OXUMARE = "Oxumare";
@@ -31,7 +31,8 @@ class Orixa {
     private ArrayList<String> orixas ;
 
 
-    public Orixa (){
+    public Orixas(){
+        orixas = new ArrayList<String>();
         orixas.add(ELEGBARA);
         orixas.add(OGUM);
         orixas.add(XANGO);

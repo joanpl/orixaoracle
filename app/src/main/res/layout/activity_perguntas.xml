@@ -4,6 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="orixaoracle.potato.orixaoracle.Perguntas">
+    tools:context=".Perguntas">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/titulo_perguntas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/text_titulo_perguntas"
+
+        tools:text="Responder com sim/nao" />
+
+    <TextView
+        android:id="@+id/caracteristica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/text_caracteristica" />
+
+        <Button
+            android:id="@+id/sim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sim" />
+
+        <Button
+            android:id="@+id/nao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nao" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

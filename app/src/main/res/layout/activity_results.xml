@@ -4,6 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="orixaoracle.potato.app.RESULTS">
+    tools:context="orixaoracle.potato.app.Results">
+
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/titulo_answers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Obrigada por responder!"
+            />
+
+        <TextView
+            android:id="@+id/resultados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/text_caracteristica" />
+
+        <Button
+            android:id="@+id/repetir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Repetir" />
+
+
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

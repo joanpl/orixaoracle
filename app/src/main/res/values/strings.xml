@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">OrixaOracle</string>
-    <string name="title_home">Home</string>
+    <string name="app_name">Orixa Oracle</string>
+    <string name="title_home">Benvindo(a) ao Oraculo dos Orixas</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="text_caracteristica"></string>
+    <string name="text_titulo_perguntas">Responder sim ou nao caso se identifique com a caracteristica:</string>
+    <string name="text_switch">"Nao"</string>
+
 </resources>
