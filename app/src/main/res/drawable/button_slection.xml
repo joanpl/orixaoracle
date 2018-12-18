@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- default state -->
+    <item android:drawable="@drawable/start_button_bg"/>
+
+    <item android:drawable="@drawable/start_button_pressed" android:state_pressed="true"/>
+    <!-- focused state -->
+    <item android:drawable="@drawable/start_button_focused" android:state_focused="true"/>
+
+</selector>
+

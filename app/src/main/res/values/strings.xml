@@ -6,5 +6,6 @@
     <string name="text_caracteristica"></string>
     <string name="text_titulo_perguntas">Responder sim ou nao caso se identifique com a caracteristica:</string>
     <string name="text_switch">"Nao"</string>
+    <string name="text_start">"Iniciar"</string>
 
 </resources>
