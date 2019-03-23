@@ -3,9 +3,15 @@ package orixaoracle.potato.app;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +28,8 @@ public class Perguntas extends AppCompatActivity {
     private int maxCounter;
     TextView mPergunta;
     private OrixaDB db;
+    private InterstitialAd mInterstitialAd;
+    private Intent intent;
 
 
 
@@ -64,6 +72,46 @@ public class Perguntas extends AppCompatActivity {
             }
         } );
 
+        // Sample AdMob app ID: ca-app-pub-8764007559480750~7390517978
+        MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
+        mInterstitialAd = new InterstitialAd(this);
+        if(MainActivity.DEBUG)
+            mInterstitialAd.setAdUnitId(MainActivity.TEST_AD);
+        else
+            mInterstitialAd.setAdUnitId(MainActivity.REAL_AD2);
+
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                startActivity(intent);
+            }
+        });
+
+
+
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
 
 
     }
@@ -77,9 +125,15 @@ public class Perguntas extends AppCompatActivity {
             mPergunta.setText(next);
         }
         else {
-            Intent intent = new Intent(this, Results.class);
+            intent = new Intent(this, Results.class);
             intent.putExtra("ANSWERS", myOracle.getResults());
-            startActivity(intent);
+
+           if (mInterstitialAd.isLoaded()) {
+               mInterstitialAd.show();
+           } else {
+               Log.d("TAG", "The interstitial wasn't loaded yet.");
+           }
+
 
         }
 

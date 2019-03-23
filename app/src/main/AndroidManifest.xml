@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".FragmentMain" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
@@ -19,7 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Perguntas" />
-        <activity android:name=".Results"></activity>
+        <activity android:name=".Results" />
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8764007559480750~7390517978"/>
     </application>
 
 </manifest>
