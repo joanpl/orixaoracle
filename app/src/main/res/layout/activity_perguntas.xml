@@ -9,18 +9,17 @@
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="350dp"
-            android:layout_height="70dp"
+            android:layout_width="348dp"
+            android:layout_height="76dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
@@ -32,14 +31,13 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="8sp"
             android:text="@string/text_titulo_perguntas"
-            android:textColor="#de000000"
-            android:textSize="16sp"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
 
-            android:textStyle="bold"
-
+            app:fontFamily="sans-serif"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.214" />
@@ -65,77 +63,80 @@
 
         <TextView
             android:id="@+id/caracteristica"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-
+            android:layout_width="334dp"
+            android:layout_height="91dp"
+            android:textColor="@color/colorAccent"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/app_bar_bg"
-            android:gravity="center"
+            android:gravity="start"
+            android:singleLine="false"
             android:text="@string/text_caracteristica"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.538"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.07" />
+            app:layout_constraintVertical_bias="0.066" />
 
 
         <Button
             android:id="@+id/sim"
+            style="@android:style/Widget.Button.Toggle"
             android:layout_width="95dp"
-            android:layout_height="39dp"
 
+            android:layout_height="39dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="44dp"
             android:layout_marginRight="44dp"
-            android:layout_marginBottom="8dp"
 
-            android:background="@drawable/button_slection"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bottom_bar"
             android:baselineAligned="false"
             android:contentDescription="Tabua de Buzios"
             android:text="Sim"
             android:textColor="#ffffff"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintBottom_toTopOf="@+id/button_style"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintHorizontal_bias="0.389"
             app:layout_constraintStart_toEndOf="@+id/nao"
             app:layout_constraintTop_toBottomOf="@+id/caracteristica"
-            app:layout_constraintVertical_bias="0.688" />
+            app:layout_constraintVertical_bias="0.78" />
 
         <Button
             android:id="@+id/nao"
+            style="@android:style/Widget.Button.Toggle"
             android:layout_width="95dp"
-            android:layout_height="39dp"
 
+            android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="200dp"
 
+            android:layout_marginEnd="200dp"
             android:layout_marginRight="200dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/button_slection"
+            android:background="@drawable/bottom_bar"
             android:baselineAligned="false"
             android:contentDescription="Tabua de Buzios"
+
             android:text="Nao"
             android:textColor="#ffffff"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintBottom_toTopOf="@+id/button_style"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.641"
+            app:layout_constraintHorizontal_bias="0.944"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/caracteristica"
-            app:layout_constraintVertical_bias="0.688" />
+            app:layout_constraintVertical_bias="0.788" />
 
 
         <ImageView
@@ -159,11 +160,11 @@
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginBottom="60dp"
+            android:layout_marginBottom="100dp"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/buzios" />
 
@@ -171,12 +172,17 @@
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/view2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/orixas"
-            tools:layout_editor_absoluteX="12dp" />
+            app:srcCompat="@drawable/orixas" />
 
 
     </android.support.constraint.ConstraintLayout>

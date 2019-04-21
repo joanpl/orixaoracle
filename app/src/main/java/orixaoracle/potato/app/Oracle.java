@@ -3,7 +3,13 @@ package orixaoracle.potato.app;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 /**
  * Created by jmpl on 10/4/18.
@@ -14,6 +20,8 @@ public class Oracle {
     private HashMap<String, ArrayList<String>> orixa_caracteristica ;
 
     private Orixas orixas;
+    private static boolean ASC = true;
+    private static boolean DESC = false;
 
     private int fire = 0;
     private int earth = 0;
@@ -26,12 +34,14 @@ public class Oracle {
     int[] show ;
     int show_counter = 0;
 
-    int max_orixa=0;
+    private int max_orixa=0;
 
     int current_orixa = -1;
 
     private OrixaDB db;
     private int maxCaracteristica = 0;
+
+
 
     public Oracle(OrixaDB db) {
 
@@ -45,6 +55,8 @@ public class Oracle {
 
             orixa_caracteristica= db.getOrixas_caracteristicas();
             maxCaracteristica = db.getMax_caracteristica();
+            if(MainActivity.DEBUG)
+                maxCaracteristica = maxCaracteristica > 1? 1 : maxCaracteristica;
         }
         else {
             for (int i = 0; i < max_orixa; i++) {
@@ -118,5 +130,84 @@ public class Oracle {
         }
         return results;
     }
+
+
+    public double[] getResultsArray () {
+
+        double[] resultsGrid = new double[orixas.getOrixas().size()];
+        String results = "";
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        for (int i = 0; i<   max_orixa ; i++ ){
+
+            double result = (max_yes>0 ?(answers[i] / (float)max_yes) * 100.0  : 0);
+            results += orixas.getOrixas().get(i)+" - "+ df.format(result).toString() + "%\n";
+            resultsGrid[i]= result;
+
+        }
+        return resultsGrid;
+    }
+
+    public static   Map<String, Double> getPrettyResults(double[] results) {
+        HashMap<String, Double> resultsString = new HashMap<>(results.length);
+        Orixas orixas = new Orixas();
+        for (int i =0; i< results.length; i++)
+        {
+            resultsString.put(orixas.getOrixas().get(i), results[i]);
+        }
+
+        // now let's sort the map in decreasing order of value
+
+        System.out.println("After sorting descending order......");
+        Map<String, Double> sortedMapDesc = sortByComparator(resultsString, DESC);
+        if(MainActivity.DEBUG)
+         printMap(sortedMapDesc);
+
+        return sortedMapDesc;
+
+    }
+
+
+    private static Map<String, Double> sortByComparator(Map<String, Double> unsortMap, final boolean order)
+    {
+
+        List<Entry<String, Double>> list = new LinkedList<Entry<String, Double>>(unsortMap.entrySet());
+
+        // Sorting the list based on values
+        Collections.sort(list, new Comparator<Entry<String, Double>>()
+        {
+            public int compare(Entry<String, Double> o1,
+                               Entry<String, Double> o2)
+            {
+                if (order)
+                {
+                    return o1.getValue().compareTo(o2.getValue());
+                }
+                else
+                {
+                    return o2.getValue().compareTo(o1.getValue());
+
+                }
+            }
+        });
+
+        // Maintaining insertion order with the help of LinkedList
+        Map<String, Double> sortedMap = new LinkedHashMap<String, Double>();
+        for (Entry<String, Double> entry : list)
+        {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+
+        return sortedMap;
+    }
+
+    public static void printMap(Map<String, Double> map)
+    {
+        for (Entry<String, Double> entry : map.entrySet())
+        {
+            System.out.println("Key : " + entry.getKey() + " Value : "+ entry.getValue());
+        }
+    }
+
 
 }

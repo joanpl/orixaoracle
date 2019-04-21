@@ -4,8 +4,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="text_caracteristica"></string>
-    <string name="text_titulo_perguntas">Responder sim ou nao caso se identifique com a caracteristica:</string>
+    <string name="text_titulo_perguntas">Click sim ou nao em caso de se identificar com o seguinte: </string>
     <string name="text_switch">"Nao"</string>
     <string name="text_start">"Iniciar"</string>
+    <string name="text_restart">"Re-Iniciar"</string>
 
 </resources>

@@ -11,68 +11,73 @@
         android:id="@+id/titulo_answers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginStart="8dp"
 
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
 
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="8sp"
         android:text="Obrigada por responder!"
         android:textColor="#de000000"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tabelaResultados"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/tabelaResultados"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+
+        android:layout_marginBottom="44dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="1px"
+        android:stretchColumns="*"
         app:layout_constraintBottom_toTopOf="@+id/repetir"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/resultados"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/resultados"
-        android:layout_width="380dp"
-        android:layout_height="280dp"
-
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center_horizontal"
-        android:text="@string/text_caracteristica"
-        app:layout_constraintBottom_toTopOf="@+id/repetir"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo_answers"
-        app:layout_constraintVertical_bias="0.504" />
+        app:layout_constraintVertical_bias="0.545">
 
+
+    </TableLayout>
 
     <Button
         android:id="@+id/repetir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-
         android:layout_marginLeft="8dp"
-
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_slection"
         android:baselineAligned="false"
         android:contentDescription="Tabua de Buzios"
-        android:text="@string/text_start"
+        android:text="@string/text_restart"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/button_style"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/button_style"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.982" />

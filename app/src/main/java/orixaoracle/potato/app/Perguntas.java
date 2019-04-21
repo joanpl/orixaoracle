@@ -23,10 +23,10 @@ public class Perguntas extends AppCompatActivity {
 
     private HashMap<String, Boolean> respostas;
     private Oracle myOracle;
-    //private ArrayList<String> caracteristicas;
-    private int counter = 0;
-    private int maxCounter;
-    TextView mPergunta;
+
+
+
+    private TextView mPergunta;
     private OrixaDB db;
     private InterstitialAd mInterstitialAd;
     private Intent intent;
@@ -127,6 +127,9 @@ public class Perguntas extends AppCompatActivity {
         else {
             intent = new Intent(this, Results.class);
             intent.putExtra("ANSWERS", myOracle.getResults());
+
+
+           intent.putExtra("ANSWERSGRID", myOracle.getResultsArray());
 
            if (mInterstitialAd.isLoaded()) {
                mInterstitialAd.show();
