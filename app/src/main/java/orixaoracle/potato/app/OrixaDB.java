@@ -22,7 +22,7 @@ public class OrixaDB {
     private HashMap<String, ArrayList<String>> orixas_caracteristicas  = new HashMap<String, ArrayList<String>>();
 
    private  int max_caracteristica =0;
-
+   private int min_caracteristica = -1;
     public OrixaDB(InputStream rootDataDir) throws IOException {
 
       //  String csvFile = rootDataDir +"/orixas_caracteristica.csv";
@@ -44,6 +44,7 @@ public class OrixaDB {
                 int size = orixas_caracteristicas.get(orixa_name).size();
                 if(size > max_caracteristica)
                     max_caracteristica = size;
+
             }
 
         }
@@ -51,7 +52,24 @@ public class OrixaDB {
 
     public int getMax_caracteristica(){
 
-        return this.max_caracteristica > 2? 2 : this.max_caracteristica;
+        return  this.max_caracteristica;
+    }
+    public int getMin_caracteristica(){
+
+        // return MainActivity.DEBUG? 2 : this.max_caracteristica;
+        if(this.min_caracteristica <0)
+        {
+
+           for (String key : orixas_caracteristicas.keySet()) {
+              int size = orixas_caracteristicas.get(key).size();
+              if(min_caracteristica <0)
+                  min_caracteristica = size;
+              if(min_caracteristica > size)
+                  min_caracteristica = size;
+           }
+        }
+
+        return  this.min_caracteristica;
     }
 
     public HashMap<String, ArrayList<String>> getOrixas_caracteristicas(){

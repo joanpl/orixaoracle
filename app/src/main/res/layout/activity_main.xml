@@ -2,12 +2,26 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".MainActivity">
 
+
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745"
+        app:srcCompat="@drawable/tabua" />
 
     <TextView
         android:id="@+id/textView"
@@ -17,37 +31,19 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="sans-serif"
+        android:layout_marginBottom="48dp"
+
         android:gravity="center_horizontal"
-        android:lineSpacingExtra="8sp"
-        android:textColor="#de000000"
-        android:textSize="16sp"
-        android:textStyle="normal"
+
+        android:text="@string/text_welcome"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/button_style"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Benvindo(a) ao Orixa Oracle!
 Para descobrir quais os seus Orixas presse Iniciar e responda as perguntas." />
-
-    <ImageView
-        android:id="@+id/banner"
-        android:layout_width="367dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285"
-        app:srcCompat="@drawable/tabua" />
 
     <Button
         android:id="@+id/button_start"
@@ -76,7 +72,7 @@ Para descobrir quais os seus Orixas presse Iniciar e responda as perguntas." />
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="80dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

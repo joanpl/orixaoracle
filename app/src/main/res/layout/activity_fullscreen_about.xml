@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context=".FullscreenActivityAbout">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="118dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center|top"
+        android:keepScreenOn="true"
+        app:srcCompat="@drawable/logo_transparent_background_small" />
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:paddingTop="100dp"
+        android:text="@string/about_orixaoracle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#ffffff" />
+
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/websiteButton"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:autoLink="web"
+                android:background="@drawable/web_button_bg"
+                android:clickable="true"
+                android:fadingEdge="horizontal|vertical"
+                android:gravity="center"
+                android:onClick="goToPotato"
+                android:shadowColor="@color/colorButton"
+                android:text="Orixa Oracle Site"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
+
+

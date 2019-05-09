@@ -23,10 +23,7 @@ public class Oracle {
     private static boolean ASC = true;
     private static boolean DESC = false;
 
-    private int fire = 0;
-    private int earth = 0;
-    private int water = 0;
-    private int air = 0;
+
     private int max_yes = 0;
 
 
@@ -54,9 +51,9 @@ public class Oracle {
         if(db!=null) {
 
             orixa_caracteristica= db.getOrixas_caracteristicas();
-            maxCaracteristica = db.getMax_caracteristica();
-            if(MainActivity.DEBUG)
-                maxCaracteristica = maxCaracteristica > 1? 1 : maxCaracteristica;
+            maxCaracteristica = db.getMin_caracteristica();
+           if(MainActivity.DEBUG)
+              maxCaracteristica = maxCaracteristica > 1? 1 : maxCaracteristica;
         }
         else {
             for (int i = 0; i < max_orixa; i++) {
