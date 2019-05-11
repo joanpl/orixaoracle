@@ -6,12 +6,12 @@ import android.support.v7.widget.Toolbar;
 
 import orixaoracle.potato.app.R;
 
-public class Ogum extends AppCompatActivity {
+public class Oxumare extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ogum);
+        setContentView(R.layout.activity_oxumare);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

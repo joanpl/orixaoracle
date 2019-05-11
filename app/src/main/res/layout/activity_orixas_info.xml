@@ -56,6 +56,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_2" />
 
             <Button
@@ -63,6 +64,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_3" />
 
             <Button
@@ -70,6 +72,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_4" />
 
         </TableRow>
@@ -83,6 +86,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_5" />
 
             <Button
@@ -90,6 +94,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_6" />
 
             <Button
@@ -97,6 +102,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_7" />
 
             <Button
@@ -104,6 +110,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_8" />
         </TableRow>
 
@@ -116,6 +123,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_9" />
 
             <Button
@@ -123,6 +131,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_10" />
 
             <Button
@@ -130,6 +139,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_11" />
 
             <Button
@@ -137,6 +147,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_12" />
         </TableRow>
 
@@ -149,6 +160,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                                android:onClick="onClick"
                 android:text="@string/tab_text_13" />
 
             <Button
@@ -156,6 +168,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_14" />
 
             <Button
@@ -163,6 +176,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_15" />
 
             <Button
@@ -170,6 +184,7 @@
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClick"
                 android:text="@string/tab_text_16" />
         </TableRow>
 

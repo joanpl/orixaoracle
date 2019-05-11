@@ -11,7 +11,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".orixas.Elegbara"
-            android:label="@string/title_activity_scrolling"
+            android:label="@string/elegbara"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".orixas.Ogum"
+            android:label="@string/ogum"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".OrixasInfo"

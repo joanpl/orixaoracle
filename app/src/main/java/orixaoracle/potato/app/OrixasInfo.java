@@ -9,6 +9,7 @@ import android.view.View;
 
 import orixaoracle.potato.app.orixas.Elegbara;
 import orixaoracle.potato.app.orixas.Ogum;
+import orixaoracle.potato.app.orixas.Oxumare;
 
 public class OrixasInfo extends AppCompatActivity  implements View.OnClickListener  {
 
@@ -36,6 +37,10 @@ public class OrixasInfo extends AppCompatActivity  implements View.OnClickListen
                break;
            case R.id.ogum:
                 intentAbout = new Intent(this, Ogum.class);
+               startActivity(intentAbout);
+               break;
+           case R.id.oxumare:
+               intentAbout = new Intent(this, Oxumare.class);
                startActivity(intentAbout);
                break;
 
