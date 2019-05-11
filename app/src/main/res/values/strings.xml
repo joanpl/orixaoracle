@@ -17,5 +17,43 @@ Para descobrir quais os seus Orixas presse Iniciar e responda as perguntas.</str
     <string name="title_activity_fullscreen_about">Sobre Nos</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_orixas_info">Orixas</string>
+    <string name="tab_text_1">Elegbara</string>
+    <string name="tab_text_2">Ogum</string>
+    <string name="tab_text_3">Oxumare</string>
+    <string name="tab_text_4">Xango</string>
+    <string name="tab_text_5">Obaluaie</string>
+    <string name="tab_text_6">Oxossi</string>
+    <string name="tab_text_7">Ossaim</string>
+    <string name="tab_text_8">Oba</string>
+    <string name="tab_text_9">Nana</string>
+    <string name="tab_text_10">Oxum</string>
+    <string name="tab_text_11">Yemanja</string>
+    <string name="tab_text_12">Ewa</string>
+    <string name="tab_text_13">Iansa</string>
+    <string name="tab_text_14">Tempo</string>
+    <string name="tab_text_15">Ifa</string>
+    <string name="tab_text_16">Oxala</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="elegbara">Elegbara</string>
+    <string name="ogum">Ogum</string>
+    <string name="title_activity_navigation">navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_navigation_orixas">NavigationOrixas</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+
 
 </resources>

@@ -5,6 +5,8 @@
 
 <item android:id="@+id/aboutus"
         android:title="Sobre Nos"/>
+    <item android:id="@+id/orixasinfo"
+        android:title="Ver Orixas"/>
 
     <item android:id="@+id/contactus"
         android:title="Pedido de Funcionalidade"/>

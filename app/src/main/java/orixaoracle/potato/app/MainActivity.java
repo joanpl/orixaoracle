@@ -129,6 +129,13 @@ public class MainActivity extends AppCompatActivity {
                intentAbout = new Intent(this, FullscreenActivityAbout.class);
                 startActivity(intentAbout);
                 return true;
+
+            case R.id.orixasinfo:
+                // Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+                intentAbout = new Intent(this, OrixasInfo.class);
+                startActivity(intentAbout);
+
+                return true;
             case R.id.contactus:
               //  Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
 

@@ -15,15 +15,17 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+
 import java.util.HashMap;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class Perguntas extends AppCompatActivity {
 
 
     private HashMap<String, Boolean> respostas;
     private Oracle myOracle;
-
+    private AdView mAdView;
 
 
     private TextView mPergunta;
@@ -74,11 +76,19 @@ public class Perguntas extends AppCompatActivity {
 
         // Sample AdMob app ID: ca-app-pub-8764007559480750~7390517978
         MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
+
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+
         mInterstitialAd = new InterstitialAd(this);
-        if(MainActivity.DEBUG)
+        if(MainActivity.DEBUG) {
             mInterstitialAd.setAdUnitId(MainActivity.TEST_AD);
-        else
+            mAdView.setAdUnitId(MainActivity.TEST_AD);
+        }
+        else {
             mInterstitialAd.setAdUnitId(MainActivity.REAL_AD2);
+        }
 
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -109,7 +119,7 @@ public class Perguntas extends AppCompatActivity {
         });
 
 
-
+        mAdView.loadAd(adRequest);
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
 
@@ -123,6 +133,8 @@ public class Perguntas extends AppCompatActivity {
 
        if(!next.isEmpty()){
             mPergunta.setText(next);
+           AdRequest adRequest = new AdRequest.Builder().build();
+           mAdView.loadAd(adRequest);
         }
         else {
             intent = new Intent(this, Results.class);
