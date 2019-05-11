@@ -82,7 +82,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/oxossi"
+                android:id="@+id/obaluaie"
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
                 android:text="@string/tab_text_5" />
 
             <Button
-                android:id="@+id/ossaim"
+                android:id="@+id/oxossi"
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:text="@string/tab_text_6" />
 
             <Button
-                android:id="@+id/obaluaie"
+                android:id="@+id/ossaim"
                 style="@android:style/Widget.Material.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
