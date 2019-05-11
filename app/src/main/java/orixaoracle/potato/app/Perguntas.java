@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
@@ -32,7 +33,7 @@ public class Perguntas extends AppCompatActivity {
     private OrixaDB db;
     private InterstitialAd mInterstitialAd;
     private Intent intent;
-
+private ProgressBar progressBar;
 
 
     @Override
@@ -51,6 +52,10 @@ public class Perguntas extends AppCompatActivity {
 
 
         mPergunta = (TextView) findViewById(R.id.caracteristica);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setMax(myOracle.getMaxQuestions());
+
 
         mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
 
@@ -133,6 +138,7 @@ public class Perguntas extends AppCompatActivity {
 
        if(!next.isEmpty()){
             mPergunta.setText(next);
+           progressBar.setProgress(myOracle.getCurrentQuestion());
            AdRequest adRequest = new AdRequest.Builder().build();
            mAdView.loadAd(adRequest);
         }

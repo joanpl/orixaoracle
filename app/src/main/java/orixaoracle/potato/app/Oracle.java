@@ -79,8 +79,7 @@ public class Oracle {
 
     // returns empty string if no more caracteristics are found.
     public String getNext()  {
-
-    int stop = max_orixa;
+        int stop = max_orixa;
 
       while(stop>0) {
 
@@ -103,7 +102,14 @@ public class Oracle {
     }
 
 
+public int getMaxQuestions() {
+        return maxCaracteristica * max_orixa;
 
+}
+
+public int getCurrentQuestion() {
+    return show_counter;
+}
 
     public void setAnswer ( boolean answer) {
         if(answer){

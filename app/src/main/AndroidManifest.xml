@@ -54,6 +54,26 @@
             android:label="Iemanja"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
+            android:name=".orixas.Ewa"
+            android:label="Ewa"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".orixas.Iansa"
+            android:label="Iansa"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".orixas.Tempo"
+            android:label="Tempo"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".orixas.Ifa"
+            android:label="Ifa"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".orixas.Oxala"
+            android:label="Oxala"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".OrixasInfo"
             android:label="@string/title_activity_orixas_info"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -26,11 +26,15 @@ public class MainActivity extends AppCompatActivity {
     private InterstitialAd mInterstitialAd;
 
 
+
     public static final String TEST_AD ="ca-app-pub-3940256099942544/1033173712";
     public static final String REAL_AD1 ="ca-app-pub-8764007559480750/4687444962";
 
 
     public static final String REAL_AD2 ="ca-app-pub-8764007559480750/8045800119";
+    public static final String REAL_AD3 ="ca-app-pub-8764007559480750/8473249873";
+
+
 
     public static final boolean DEBUG =false;
     private Intent intent;
@@ -48,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.button_start);
 
         button.setText("Iniciar");
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,38 +60,33 @@ public class MainActivity extends AppCompatActivity {
         } );
 
 
+        button = (Button) findViewById(R.id.todosorixas);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToAllOrixas();
+            }
+        } );
+
 
 
         // Sample AdMob app ID: ca-app-pub-8764007559480750~7390517978
         MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
         mInterstitialAd = new InterstitialAd(this);
-        if(DEBUG)
+
+        if(DEBUG) {
             mInterstitialAd.setAdUnitId(TEST_AD);
-        else
+
+        }
+        else {
             mInterstitialAd.setAdUnitId(REAL_AD1);
+
+        }
 
 
 
         mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-            }
 
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when the ad is displayed.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-            }
 
             @Override
             public void onAdClosed() {
@@ -97,18 +95,39 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
     }
 
 
     private void goToStartActivity() {
+
+        intent = new Intent(this, Perguntas.class);
 
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
         }
-        intent = new Intent(this, Perguntas.class);
+
+        startActivity(intent);
+
+
+    }
+
+    private void goToAllOrixas() {
+        // Toast.allorixas(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+        intent = new Intent(this, OrixasInfo.class);
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        startActivity(intent);
 
 
     }
@@ -131,13 +150,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.orixasinfo:
-                // Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
-                intentAbout = new Intent(this, OrixasInfo.class);
-                startActivity(intentAbout);
 
+                goToAllOrixas();
                 return true;
             case R.id.contactus:
-              //  Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+
 
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("plain/text");
@@ -145,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_SUBJECT, "[Pedido de Funcionalidade]");
                 intent.putExtra(Intent.EXTRA_TEXT, "Funcionalidade");
                 startActivity(Intent.createChooser(intent, ""));
+                Toast.makeText(getApplicationContext(),"Obrigada pelo seu contacto.",Toast.LENGTH_LONG).show();
                 return true;
 
             default:

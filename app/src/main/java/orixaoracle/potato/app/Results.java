@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.URLSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -14,6 +17,23 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.Map;
+
+import orixaoracle.potato.app.orixas.Elegbara;
+import orixaoracle.potato.app.orixas.Ewa;
+import orixaoracle.potato.app.orixas.Iansa;
+import orixaoracle.potato.app.orixas.Iemanja;
+import orixaoracle.potato.app.orixas.Ifa;
+import orixaoracle.potato.app.orixas.Nana;
+import orixaoracle.potato.app.orixas.Oba;
+import orixaoracle.potato.app.orixas.Obaluaie;
+import orixaoracle.potato.app.orixas.Ogum;
+import orixaoracle.potato.app.orixas.Ossaim;
+import orixaoracle.potato.app.orixas.Oxala;
+import orixaoracle.potato.app.orixas.Oxossi;
+import orixaoracle.potato.app.orixas.Oxum;
+import orixaoracle.potato.app.orixas.Oxumare;
+import orixaoracle.potato.app.orixas.Tempo;
+import orixaoracle.potato.app.orixas.Xango;
 
 
 public class Results extends AppCompatActivity {
@@ -28,15 +48,6 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
         Intent intent = getIntent();
-
-      //  String answers = intent.getStringExtra("ANSWERS");
-       // TextView mResultado = (TextView) findViewById(R.id.resultados);
-
-     //   mResultado.setText(answers);
-
-
-
-
 
 
         double[] answersGrid = intent.getDoubleArrayExtra("ANSWERSGRID");
@@ -97,7 +108,7 @@ private void startLoadData(TableLayout tl, Map<String, Double> prettyResults) {
     label_orixa.setLayoutParams(params);
     tr_head.setBackgroundColor(Color.parseColor("#f9a159")); // or #59b1f9
 
-     //  label_orixa.setPadding(10, 5, 5, 5);
+
         tr_head.addView(label_orixa);// add the column to the table row here
 
         TextView percentagem = new TextView(this);
@@ -134,6 +145,21 @@ private void startLoadData(TableLayout tl, Map<String, Double> prettyResults) {
         labelOrixa.setLayoutParams(params);
         labelOrixa.setId(200+count);
         labelOrixa.setText(orixa_value.getKey());
+
+        //Open activity for the Orixa
+
+
+        labelOrixa.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = getClassOrixa(((TextView)v).getText().toString());
+                startActivity(intent);
+            }
+        });
+        makeTextViewHyperlink(labelOrixa);
+
+
+
+
         label_orixa.setTextSize(18);
        // labelOrixa.setPadding(2, 0, 5, 0);
         if(count%2==0) labelOrixa.setTextColor(Color.WHITE);
@@ -154,59 +180,98 @@ private void startLoadData(TableLayout tl, Map<String, Double> prettyResults) {
     }
 
 }
+private Intent getClassOrixa (String orixa) {
+        Intent intent = new Intent(this, Elegbara.class);
+        switch (orixa) {
+            case Orixas.ELEGBARA:
+                intent = new Intent(this, Elegbara.class);
 
+                break;
+            case Orixas.OGUM:
+                intent = new Intent(this, Ogum.class);
+
+            break;
+            case Orixas.OXUMARE:
+                intent = new Intent(this, Oxumare.class);
+
+                break;
+            case  Orixas.XANGO:
+                intent = new Intent(this, Xango.class);
+
+                break;
+            case  Orixas.OBALUAIE:
+                intent = new Intent(this, Obaluaie.class);
+
+                break;
+            case  Orixas.OXOSSI:
+                intent = new Intent(this, Oxossi.class);
+
+                break;
+
+            case Orixas.OSSAIM:
+                intent = new Intent(this, Ossaim.class);
+
+                break;
+
+            case Orixas.OBA:
+                intent = new Intent(this, Oba.class);
+                break;
+
+            case Orixas.NANA:
+                intent = new Intent(this, Nana.class);
+                break;
+            case  Orixas.OXUM:
+                intent = new Intent(this, Oxum.class);
+                break;
+            case  Orixas.YEMANJA:
+                intent = new Intent(this, Iemanja.class);
+                break;
+            case  Orixas.EWA:
+                intent = new Intent(this, Ewa.class);
+                break;
+            case  Orixas.IANSA:
+                intent = new Intent(this, Iansa.class);
+
+                break;
+            case Orixas.TEMPO:
+                intent = new Intent(this, Tempo.class);
+
+                break;
+            case  Orixas.IFA:
+                intent = new Intent(this, Ifa.class);
+
+                break;
+            case  Orixas.OXALA:
+                intent = new Intent(this, Oxala.class);
+
+                break;
+
+
+        }
+    return intent;
+
+}
 
 
 
     private void goToStartActivity() {
 
-        Intent intent = new Intent(this, Perguntas.class);
+        Intent intent = new Intent(this, MainActivity.class);
 
         startActivity(intent);
 
     }
 
-//    private void initializeGraph(){
-//
-//        GraphView graph = (GraphView) findViewById(R.id.graph_answers);
-//
-//
-//        Orixas orixaNames = new Orixas();
-//        // use static labels for horizontal and vertical labels
-//        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-//      //  staticLabelsFormatter.setHorizontalLabels(new String[] {"old", "middle", "new"});
-//        String[] names = new String[orixaNames.getOrixas().size()];
-//        orixaNames.getOrixas().toArray(names);
-//        staticLabelsFormatter.setVerticalLabels(names);
-//        graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
-//
-//        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-//                new DataPoint(0, -1),
-//                new DataPoint(1, 5),
-//                new DataPoint(2, 3),
-//                new DataPoint(3, 2),
-//                new DataPoint(4, 6)
-//        });
-//        graph.addSeries(series);
-//
-//
-//// styling
-//        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-//            @Override
-//            public int get(DataPoint data) {
-//                return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
-//            }
-//        });
-//
-//        series.setSpacing(50);
-//
-//// draw values on top
-//        series.setDrawValuesOnTop(true);
-//        series.setValuesOnTopColor(Color.RED);
-////series.setValuesOnTopSize(50);
-//    }
 
+    public static void makeTextViewHyperlink(TextView tv) {
 
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
 
+        ssb.append(tv.getText());
 
+        ssb.setSpan(new URLSpan("#"), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        tv.setText(ssb, TextView.BufferType.SPANNABLE);
+
+    }
 }

@@ -35,7 +35,7 @@ class Orixas {
     public final static String  OBA = "Oba";
 
     private final static ArrayList<String>  OBA_NAMES = new ArrayList<String>(Arrays.asList("oba"));
-    public static String  NANA = "Nana";
+    public final static String  NANA = "Nana";
 
     private final static ArrayList<String>  NANA_NAMES = new ArrayList<String>(Arrays.asList("nana", "buruku", "buluku"));
     public final static String  OXUM = "Oxum";

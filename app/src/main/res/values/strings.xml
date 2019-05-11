@@ -4,9 +4,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="text_caracteristica">...</string>
-    <string name="text_titulo_perguntas">Click sim ou nao em caso de se identificar com o seguinte: </string>
-    <string name="text_switch">"Nao"</string>
-    <string name="text_start">"Iniciar"</string>
+    <string name="text_titulo_perguntas">Click sim ou não em caso de se identificar com o seguinte: </string>
+    <string name="text_switch">"Não"</string>
+    <string name="text_start">"Iniciar Perguntas"</string>
     <string name="text_restart">"Re-Iniciar"</string>
     <string name="text_welcome">Benvindo(a) ao Orixa Oracle!
 Para descobrir quais os seus Orixas presse Iniciar e responda as perguntas.</string>

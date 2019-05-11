@@ -6,12 +6,12 @@ import android.support.v7.widget.Toolbar;
 
 import orixaoracle.potato.app.R;
 
-public class Iemanja extends AppCompatActivity {
+public class Tempo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iemanja);
+        setContentView(R.layout.activity_tempo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
