@@ -1,7 +1,6 @@
 package orixaoracle.potato.app;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,10 +17,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.util.HashMap;
-import com.google.android.gms.ads.AdRequest;
+
 import com.google.android.gms.ads.AdView;
 
-public class Perguntas extends AppCompatActivity {
+public class Perguntas extends BaseOrixasActivity {
 
 
     private HashMap<String, Boolean> respostas;
@@ -32,8 +31,8 @@ public class Perguntas extends AppCompatActivity {
 
     private TextView mPergunta;
     private OrixaDB db;
-    private InterstitialAd mInterstitialAd;
-    private Intent intent;
+    private InterstitialAd mInterstitialAd2;
+    private Intent intentResults;
 private ProgressBar progressBar;
 
 
@@ -50,7 +49,7 @@ private ProgressBar progressBar;
         }
         myOracle = new Oracle(db);
         respostas = new HashMap<>();
-        intent = new Intent(this, Results.class);
+        intentResults = new Intent(this, Results.class);
 
         mPergunta = (TextView) findViewById(R.id.caracteristica);
 
@@ -89,17 +88,17 @@ private ProgressBar progressBar;
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd2 = new InterstitialAd(this);
         if(MainActivity.DEBUG) {
-            mInterstitialAd.setAdUnitId(MainActivity.TEST_AD);
+            mInterstitialAd2.setAdUnitId(MainActivity.TEST_AD);
             mAdView.setAdUnitId(MainActivity.TEST_AD);
         }
         else {
-            mInterstitialAd.setAdUnitId(MainActivity.REAL_AD2);
+            mInterstitialAd2.setAdUnitId(MainActivity.REAL_AD2);
         }
 
 
-        mInterstitialAd.setAdListener(new AdListener() {
+        mInterstitialAd2.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
@@ -122,13 +121,13 @@ private ProgressBar progressBar;
 
             @Override
             public void onAdClosed() {
-                startActivity(intent);
+                startActivity(intentResults);
             }
         });
 
 
         mAdView.loadAd(adRequest);
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd2.loadAd(new AdRequest.Builder().build());
 
 
 
@@ -148,18 +147,18 @@ private ProgressBar progressBar;
         }
         else {
 
-            intent.putExtra("ANSWERS", myOracle.getResults());
+            intentResults.putExtra("ANSWERS", myOracle.getResults());
 
 
-           intent.putExtra("ANSWERSGRID", myOracle.getResultsArray());
+           intentResults.putExtra("ANSWERSGRID", myOracle.getResultsArray());
 
-           if (mInterstitialAd.isLoaded()) {
-               mInterstitialAd.show();
+           if (mInterstitialAd2.isLoaded()) {
+               mInterstitialAd2.show();
            } else {
                Log.d("TAG", "The interstitial wasn't loaded yet.");
            }
 
-           startActivity(intent);
+           startActivity(intentResults);
         }
 
     }

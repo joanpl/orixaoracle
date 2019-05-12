@@ -36,7 +36,7 @@ import orixaoracle.potato.app.orixas.Tempo;
 import orixaoracle.potato.app.orixas.Xango;
 
 
-public class Results extends AppCompatActivity {
+public class Results extends BaseOrixasActivity {
     private static DecimalFormat df2 = new DecimalFormat("#.##");
 
     @Override
@@ -69,7 +69,7 @@ public class Results extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToStartActivity();
+                goToStart();
             }
         } );
         // setup the table
@@ -77,7 +77,7 @@ public class Results extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goAllOrixas();
+                goToAllOrixas();
             }
         } );
 
@@ -260,7 +260,7 @@ private Intent getClassOrixa (String orixa) {
 
 
 
-    private void goToStartActivity() {
+    private void goToStart() {
 
         Intent intent = new Intent(this, MainActivity.class);
 
@@ -268,13 +268,7 @@ private Intent getClassOrixa (String orixa) {
 
     }
 
-    private void goAllOrixas() {
 
-        Intent intent = new Intent(this, OrixasInfo.class);
-
-        startActivity(intent);
-
-    }
 
 
     public static void makeTextViewHyperlink(TextView tv) {

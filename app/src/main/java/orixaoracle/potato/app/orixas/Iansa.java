@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import orixaoracle.potato.app.BaseOrixasActivity;
 import orixaoracle.potato.app.R;
 
-public class Iansa extends AppCompatActivity {
+public class Iansa extends BaseOrixasActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

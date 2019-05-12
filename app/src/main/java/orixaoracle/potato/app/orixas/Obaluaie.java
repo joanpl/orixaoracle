@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import orixaoracle.potato.app.BaseOrixasActivity;
 import orixaoracle.potato.app.R;
 
-public class Obaluaie extends AppCompatActivity {
+public class Obaluaie extends BaseOrixasActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

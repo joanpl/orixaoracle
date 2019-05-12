@@ -15,10 +15,10 @@ import com.google.android.gms.ads.MobileAds;
 
 import orixaoracle.potato.app.orixas.*;
 
-public class OrixasInfo extends AppCompatActivity  implements View.OnClickListener  {
+public class OrixasInfo extends BaseOrixasActivity  implements View.OnClickListener  {
 
     private AdView mAdView;
-    private InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

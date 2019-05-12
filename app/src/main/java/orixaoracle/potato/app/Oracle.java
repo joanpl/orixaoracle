@@ -23,6 +23,10 @@ public class Oracle {
     private static boolean ASC = true;
     private static boolean DESC = false;
 
+    private int[] elementsResult = new int[4];
+
+
+
 
     private int max_yes = 0;
 

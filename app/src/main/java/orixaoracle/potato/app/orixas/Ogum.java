@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import orixaoracle.potato.app.BaseOrixasActivity;
 import orixaoracle.potato.app.R;
 
-public class Ogum extends AppCompatActivity {
+public class Ogum extends BaseOrixasActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

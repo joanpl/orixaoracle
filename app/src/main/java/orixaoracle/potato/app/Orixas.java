@@ -64,6 +64,20 @@ class Orixas {
     private ArrayList<String> orixas ;
 
 
+    public final static Integer FIRE = 0;
+    public final static Integer EARTH = 1;
+    public final static Integer WATER = 2;
+    public final static Integer AIR = 3;
+
+
+    HashMap<String, ArrayList<Integer>> orixaElementsMapping;
+
+    private void initOrixaElementsMapping() {
+
+        orixaElementsMapping = new HashMap<>();
+    }
+
+
     public Orixas(){
         orixas = new ArrayList<String>();
         orixas.add(ELEGBARA);
