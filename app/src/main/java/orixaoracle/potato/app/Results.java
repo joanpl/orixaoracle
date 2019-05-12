@@ -73,7 +73,13 @@ public class Results extends AppCompatActivity {
             }
         } );
         // setup the table
-
+        Button button2 = (Button) findViewById(R.id.orixas);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goAllOrixas();
+            }
+        } );
 
 
 
@@ -257,6 +263,14 @@ private Intent getClassOrixa (String orixa) {
     private void goToStartActivity() {
 
         Intent intent = new Intent(this, MainActivity.class);
+
+        startActivity(intent);
+
+    }
+
+    private void goAllOrixas() {
+
+        Intent intent = new Intent(this, OrixasInfo.class);
 
         startActivity(intent);
 

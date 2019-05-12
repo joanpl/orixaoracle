@@ -28,6 +28,7 @@ public class Perguntas extends AppCompatActivity {
     private Oracle myOracle;
     private AdView mAdView;
 
+    private int count =0;
 
     private TextView mPergunta;
     private OrixaDB db;
@@ -49,12 +50,14 @@ private ProgressBar progressBar;
         }
         myOracle = new Oracle(db);
         respostas = new HashMap<>();
-
+        intent = new Intent(this, Results.class);
 
         mPergunta = (TextView) findViewById(R.id.caracteristica);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(myOracle.getMaxQuestions());
+        progressBar.setIndeterminate(false);
+
 
 
         mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
@@ -135,15 +138,16 @@ private ProgressBar progressBar;
        myOracle.setAnswer(answer);
 
        String next= myOracle.getNext();
-
+        this.count++;
+        if((count % 10)==0)
+            mAdView.loadAd( new AdRequest.Builder().build());
        if(!next.isEmpty()){
             mPergunta.setText(next);
            progressBar.setProgress(myOracle.getCurrentQuestion());
-           AdRequest adRequest = new AdRequest.Builder().build();
-           mAdView.loadAd(adRequest);
+
         }
         else {
-            intent = new Intent(this, Results.class);
+
             intent.putExtra("ANSWERS", myOracle.getResults());
 
 
@@ -155,7 +159,7 @@ private ProgressBar progressBar;
                Log.d("TAG", "The interstitial wasn't loaded yet.");
            }
 
-
+           startActivity(intent);
         }
 
     }
