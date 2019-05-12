@@ -1,59 +1,38 @@
 <resources>
-        <string name="sintese_elegbara"> "Elemento : Fogo\n""Príncipio: Justiça\n"
-                "Sistema: Térmico\n"
-                "Dualidade: Elegbara\n"
-                "Polaridade: Elegbara\n"
-                "Qualidade: Fogo primordial da Libido Universal, Paixão. Fogo da transformação sem direcção. Desejo. Essência da Matéria. Início.\n"
-                "Característica: Emissão\n"</string>
-        <string name="sintese_elegbara2">
 
-"Cor –Preto, Vermelho e Preto\n"
-
-"Sincretismo – Santo António\n"
-
-"Dia – Segunda-feira\n"
-
-"Saudação – Elarouê Exu\n"
-
-"Domínio – Encruzilhadas, Cemitérios\n"
-
-"Data comemorativa – 13 de Junho"
-
-
-        </string>
     <string name="large_text_elegbara">
 
 "Elegbara: O mensageiro dos Orixás\n\n"
 
-"Conhecido como vodum, Legba ou Elegbara, é o mais caluniado, incompreendido e controverso Orixá do panteão africano. "
-        Devido ao seu carácter dual, pois possui em si um lado positivo e outro negativo como qualquer um de nós, utilizados de forma totalmente consciente, sem contradição alguma.
-        Foi mal interpretado pelos primeiros cristãos que tudo que confundiam o mal existente no ser humano, com Exú, e como esse lhe escapava a margem de seus escassos conhecimentos,
-        foi condenado e associado à imagem do Deus Fálico, como também a do Diabo cristão. Infeliz comparação, que nada tem haver com a função desse Orixá na ordem do universo.\n"
+"Conhecido como vodum, Legba ou Elegbara, é o mais caluniado, incompreendido e controverso Orixá do panteão africano."
+"Devido ao seu carácter dual, pois possui em si um lado positivo e outro negativo como qualquer um de nós, utilizados de forma totalmente consciente, sem contradição alguma.
+Foi mal interpretado pelos primeiros cristãos que tudo que confundiam o mal existente no ser humano, com Exú, e como esse lhe escapava a margem de seus escassos conhecimentos,
+foi condenado e associado à imagem do Deus Fálico, como também a do Diabo cristão. Infeliz comparação, que nada tem haver com a função desse Orixá na ordem do universo.\n"
 
 "Mas para entender um pouco desse Orixá precisamos lembrar um pouco das lendas sobre os Orixás.
 Para os antigos iorubás, os homens habitam o Aiê, e os Orixás, o Orum, mas apesar da aparente separação, esses dois mundos permanecem interligados,
-        e quem conhece o caminho que liga os dois mundo é Exú, pois tem passagem livre para o reinos dos deuses e o dos homens.
-        Assim, sempre que os homens oferendavam os sagrados Orixás, tinham que oferendar também Exú, para que este transportasse até os deuses suas oferendas e trouxesse de volta as bênçãos,
-        mensagens e concelhos enviada pelas divindades do Aiê, assim nada acontece sem a intervenção desse mensageiro,
-        que abria ou fechava os caminhos que ligavam o céu a terra, o que tornou seu poder incomensurável.\n"
+e quem conhece o caminho que liga os dois mundo é Exú, pois tem passagem livre para o reinos dos deuses e o dos homens.
+Assim, sempre que os homens oferendavam os sagrados Orixás, tinham que oferendar também Exú, para que este transportasse até os deuses suas oferendas e trouxesse de volta as bênçãos,
+mensagens e concelhos enviada pelas divindades do Aiê, assim nada acontece sem a intervenção desse mensageiro,
+que abria ou fechava os caminhos que ligavam o céu a terra, o que tornou seu poder incomensurável.\n"
 
 "Assim estabeleceu-se que sem “pagar” Exú, ele não trabalha, o que acabou por imputar-lhe a imagem de mercenário,
-        interesseiro e corrupto. Longe do ideal cristão de amor, bondade e caridade.
-        Devido a seu cargo de mensageiro, Exú tudo sabe, tudo conhece e tudo entende, para ele tudo é possível.
-        Abnegado, Exú trabalha para todos com abnegação, sem distinção, nem preferencia, sendo o Orixá mais próximo do ser humano.\n"
+interesseiro e corrupto. Longe do ideal cristão de amor, bondade e caridade.
+Devido a seu cargo de mensageiro, Exú tudo sabe, tudo conhece e tudo entende, para ele tudo é possível.
+Abnegado, Exú trabalha para todos com abnegação, sem distinção, nem preferencia, sendo o Orixá mais próximo do ser humano.\n"
 
 "Orixá transformador, rompe normas, regras e tradições promovendo profundas mudanças,
-        seja a nível pessoal ou colectivo, sendo temido apenas por fazer cumprir a lei divina que tudo renova e desenvolve, dando continuidade a vida.
-        Por isso também está associado a sexualidade, ao vigor.
-        Mas como é comum ao ser humano temer as mudanças, e as cobranças pelo mal comedido, passou então a temer Exú, o mensageiro dos Orixás,
-        consequentemente da lei e da ordem. Pois Exú não faz o mal, pelo contrário, luta contra ele, mas quando é preciso cobrar,
-        não duvide pois ele faz sem dó nem piedade. Por isso antes de pedir algo a Exú, meça bem,
-        porque tudo tem uma reacção e não queira ter um Exú voltado contra si.\n"
+seja a nível pessoal ou colectivo, sendo temido apenas por fazer cumprir a lei divina que tudo renova e desenvolve, dando continuidade a vida.
+Por isso também está associado a sexualidade, ao vigor.
+Mas como é comum ao ser humano temer as mudanças, e as cobranças pelo mal comedido, passou então a temer Exú, o mensageiro dos Orixás,
+consequentemente da lei e da ordem. Pois Exú não faz o mal, pelo contrário, luta contra ele, mas quando é preciso cobrar,
+não duvide pois ele faz sem dó nem piedade. Por isso antes de pedir algo a Exú, meça bem,
+porque tudo tem uma reacção e não queira ter um Exú voltado contra si.\n"
 
 "Combatente incontestado das trevas, pois está no meio, na linha divisória entre a luz e as trevas, ninguém das trevas sobe para luz sem ser observado por um Exú,
-        e ninguém da luz desce as trevas sem sua guarda e protecção. Assim podemos dizer que Exú é o “anjo” de Deus nas trevas,
-        pois protege todos os trabalho de ordem espiritual, guardando a porteira e zelando pelo seu bom andamento destes,
-        por isso ele é sempre saudado no inicio de um ritual de Umbanda, para que ele abra as porteiras da casa, tanto do astral para a terra e vice e versa.\n"
+e ninguém da luz desce as trevas sem sua guarda e protecção. Assim podemos dizer que Exú é o “anjo” de Deus nas trevas,
+pois protege todos os trabalho de ordem espiritual, guardando a porteira e zelando pelo seu bom andamento destes,
+por isso ele é sempre saudado no inicio de um ritual de Umbanda, para que ele abra as porteiras da casa, tanto do astral para a terra e vice e versa.\n"
 
 "Com isso explicado, fica obvio porque Exú é o vigia as passagens, dono das portas dos caminhos, e protector dos perigos e inimigos."
 
