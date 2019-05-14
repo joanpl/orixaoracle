@@ -1,5 +1,7 @@
 package orixaoracle.potato.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,6 +54,9 @@ private ProgressBar progressBar;
         intentResults = new Intent(this, Results.class);
 
         mPergunta = (TextView) findViewById(R.id.caracteristica);
+
+        showDialog();
+
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setMax(myOracle.getMaxQuestions());
@@ -131,6 +136,52 @@ private ProgressBar progressBar;
 
 
 
+    }
+
+   private void showDialog() {
+
+       // get prompts.xml view
+       LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
+       View promptView = layoutInflater.inflate(R.layout.input_dialog, null);
+       AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+       alertDialogBuilder.setView(promptView);
+
+       final EditText editText = (EditText) promptView.findViewById(R.id.edittext);
+       // setup a dialog window
+       alertDialogBuilder.setCancelable(false)
+               .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       resultText.setText("Hello, " + editText.getText());
+                   }
+               })
+               .setNegativeButton("Cancel",
+                       new DialogInterface.OnClickListener() {
+                           public void onClick(DialogInterface dialog, int id) {
+                               dialog.cancel();
+                           }
+                       });
+
+       // create an alert dialog
+       AlertDialog alert = alertDialogBuilder.create();
+       alert.show();
+
+    }
+
+
+    private void seleccionarPrecisao() {
+        String[] multiChoiceItems = getResources().getStringArray(R.array.dialog_multi_choice_array);
+        final boolean[] checkedItems = {false, false, false, false};
+        new AlertDialog.Builder(this)
+                .setTitle("Escolha o grau de precisão:")
+                .setMultiChoiceItems(multiChoiceItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int index, boolean isChecked) {
+                        Log.d("MainActivity", "clicked item index is " + index);
+                    }
+                })
+                .setPositiveButton("Ok", null)
+                .setNegativeButton("Cancel", null)
+                .show();
     }
 
     private void sayYeah(boolean answer) {

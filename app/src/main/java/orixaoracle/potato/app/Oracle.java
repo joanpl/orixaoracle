@@ -42,6 +42,10 @@ public class Oracle {
     private OrixaDB db;
     private int maxCaracteristica = 0;
 
+    public static final int MIN_GAME = 2;
+
+    public static final int MODERATE_GAME = 3;
+
 
 
     public Oracle(OrixaDB db) {

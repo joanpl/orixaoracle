@@ -69,12 +69,34 @@ class Orixas {
     public final static Integer WATER = 2;
     public final static Integer AIR = 3;
 
+    public static final Double FIRST_WEIGHT = 0.7;
+    public static final Double SECOND_WEIGHT = 0.3;
+
 
     HashMap<String, ArrayList<Integer>> orixaElementsMapping;
 
     private void initOrixaElementsMapping() {
 
         orixaElementsMapping = new HashMap<>();
+        orixaElementsMapping.put(ELEGBARA, new ArrayList<Integer>(Arrays.asList(FIRE,FIRE)));
+        orixaElementsMapping.put(OGUM, new ArrayList<Integer>(Arrays.asList(FIRE,EARTH)));
+        orixaElementsMapping.put(OXUMARE, new ArrayList<Integer>(Arrays.asList(FIRE,WATER)));
+        orixaElementsMapping.put(XANGO, new ArrayList<Integer>(Arrays.asList(FIRE,AIR)));
+
+        orixaElementsMapping.put(OBALUAIE, new ArrayList<Integer>(Arrays.asList(EARTH,FIRE)));
+        orixaElementsMapping.put(OXOSSI, new ArrayList<Integer>(Arrays.asList(EARTH,EARTH)));
+        orixaElementsMapping.put(OSSAIM, new ArrayList<Integer>(Arrays.asList(EARTH,WATER)));
+        orixaElementsMapping.put(OBA, new ArrayList<Integer>(Arrays.asList(EARTH,AIR)));
+
+        orixaElementsMapping.put(NANA, new ArrayList<Integer>(Arrays.asList(WATER,FIRE)));
+        orixaElementsMapping.put(OXUM, new ArrayList<Integer>(Arrays.asList(WATER,EARTH)));
+        orixaElementsMapping.put(YEMANJA, new ArrayList<Integer>(Arrays.asList(WATER,WATER)));
+        orixaElementsMapping.put(EWA, new ArrayList<Integer>(Arrays.asList(WATER,AIR)));
+
+        orixaElementsMapping.put(IANSA, new ArrayList<Integer>(Arrays.asList(AIR,FIRE)));
+        orixaElementsMapping.put(TEMPO, new ArrayList<Integer>(Arrays.asList(AIR,EARTH)));
+        orixaElementsMapping.put(IFA, new ArrayList<Integer>(Arrays.asList(AIR,WATER)));
+        orixaElementsMapping.put(OXALA, new ArrayList<Integer>(Arrays.asList(AIR,AIR)));
     }
 
 
@@ -96,7 +118,7 @@ class Orixas {
         orixas.add(TEMPO);
         orixas.add(IFA);
         orixas.add(OXALA);
-
+        initOrixaElementsMapping();
 
     }
 

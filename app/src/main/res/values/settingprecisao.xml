@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="dialog_multi_choice_array">
+        <item>@string/text_precisao_simples</item>
+        <item>@string/text_precisao_simples</item>
+        <item>@string/text_precisao_simples</item>
+    </string-array>
+    <string name="text_precisao_title">Escolha a sua precisão</string>
+    <string name="text_precisao_simples">Simples</string>
+    <string name="text_precisao_normal">Normal</string>
+    <string name="text_precisao_elevada">Elevada</string>
+    <string name="text_precisao">Quanto mais perguntas responder mais preciso o cálculo de probabilidades de cada Orixá. Na versão simples responde a 2 perguntas de cada Orixá,
+        na normal 3 e por fim, na elevada pelo menos 4. Há 16 orixás no Xirê pelo que seleccionar normal irá responder a 32 perguntas (16x2)"</string>
+
+
+
+</resources>
