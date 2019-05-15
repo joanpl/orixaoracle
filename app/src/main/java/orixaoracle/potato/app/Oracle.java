@@ -43,8 +43,28 @@ public class Oracle {
     private int maxCaracteristica = 0;
 
     public static final int MIN_GAME = 2;
-
     public static final int MODERATE_GAME = 3;
+
+    public void setLevel (int level ) {
+
+        switch(level) {
+            case 0:
+               maxCaracteristica = maxCaracteristica < MIN_GAME? maxCaracteristica : MIN_GAME;
+               break;
+            case 1:
+                maxCaracteristica = maxCaracteristica < MODERATE_GAME? maxCaracteristica : MODERATE_GAME;
+                break;
+
+            default:
+
+                    if(MainActivity.DEBUG)
+                        maxCaracteristica = maxCaracteristica > 1? 1 : maxCaracteristica;
+                    else
+                        maxCaracteristica = db.getMin_caracteristica();
+
+        }
+
+    }
 
 
 
@@ -52,7 +72,7 @@ public class Oracle {
 
         orixas = new Orixas();
         this.db = db;
-        max_orixa = orixas.getOrixas().size();
+        max_orixa = orixas.getOrixas().size(); //16?
         answers = new int[max_orixa];
         show = new int[max_orixa];
         orixa_caracteristica = new HashMap<String,ArrayList<String>>();

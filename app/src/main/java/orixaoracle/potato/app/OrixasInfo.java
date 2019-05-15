@@ -33,7 +33,7 @@ public class OrixasInfo extends BaseOrixasActivity  implements View.OnClickListe
 
         if(MainActivity.DEBUG) {
 
-            mAdView.setAdUnitId(MainActivity.TEST_AD);
+            mAdView.setAdUnitId(TEST_AD_BANNER);
         }
 
 

@@ -25,6 +25,8 @@ public class BaseOrixasActivity extends AppCompatActivity {
 
     public static final String TEST_AD ="ca-app-pub-3940256099942544/1033173712";
     public static final String REAL_AD1 ="ca-app-pub-8764007559480750/4687444962";
+    public static final String TEST_AD_BANNER ="ca-app-pub-3940256099942544/6300978111";
+
 
 
     public static final String REAL_AD2 ="ca-app-pub-8764007559480750/8045800119";
@@ -41,26 +43,26 @@ public class BaseOrixasActivity extends AppCompatActivity {
         initAddInterstitial();
     }
 
-    public Intent getIntent() {
+    public Intent getIntentResult() {
         return this.intent;
     }
 
-    public  void setIntent (Intent setIntent) {
+    public  void setIntentResult (Intent setIntent) {
         this.intent = setIntent;
     }
 
 
     public void goToAllOrixas() {
-        Intent intent = new Intent(this, OrixasInfo.class);
+        intent = new Intent(this, OrixasInfo.class);
         loadShowInterstitial();
-        startActivity(intent);
+   //     startActivity(intent);
 
     }
     public void goToStartActivity() {
 
-        setIntent(new Intent(this, Perguntas.class));
+        intent = new Intent(this, Perguntas.class);
         loadShowInterstitial();
-        startActivity(getIntent());
+//        startActivity(getIntent());
 
 
     }
@@ -71,6 +73,7 @@ public class BaseOrixasActivity extends AppCompatActivity {
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
+            //  Toast.makeText(getApplicationContext(),"Ad Loaded", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -133,11 +136,12 @@ public class BaseOrixasActivity extends AppCompatActivity {
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int errorCode) {
-               // Toast.makeText(getApplicationContext(),"Ad Failed To Load", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
             }
             @Override
             public void onAdLoaded() {
-              //  Toast.makeText(getApplicationContext(),"Ad Loaded", Toast.LENGTH_SHORT).show();
+
+               // mInterstitialAd.show();
             }
             @Override
             public void onAdClosed() {
