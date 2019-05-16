@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="sexta">Hoje é sexta-feira, tradicionalmente veste-se o branco e homenegeia-se Oxalá</string>
+    <string name="segunda">Hoje é segunda-feira, dia das almas e dos pretos-velhos. Salve Pai Obaluaiê! Atôtô Obaluaiê. É também dia do Senhor dos inícios, Elegbara.</string>
+    <string name="terca">Hoje é terça-feira, dia protegido por Ogum e Nanã. Que pai Ogum lhe dê a força e o movimento que precisa para esta semana e que Nanã faça da sua semana uma fonte de felicidade</string>
+    <string name="quinta">Hoje é quinta-feira, o fim de semana está quase aí. É dia de pedir protecção a Oxóssi, Oxumaré e Ossaim, que Oxumaré lhe dê direcção, que Ossaim lhe cure todos os males e pai Oxóssi o(a) guie.</string>
+    <string name="quarta">Hoje é quarta-feira, dia protegido por Xangô, Iansã e Obá. Que Pai Xangô, mãe Iansã e Obá proteja a si e aos seus.</string>
+    <string name="sabado">Hoje é sábado, dia protegido por todas as Yabas. Que todas as mãe de água o(a) acolham</string>
+    <string name="domingo">Hoje é domingo, um ciclo que termina e outro que se inicía. Salve o Tempo!</string>
+
+<string name="comemoration">Todos os anos neste dia se celebra:\n </string>
+</resources>

@@ -17,6 +17,23 @@ import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
 
+import orixaoracle.potato.app.orixas.Elegbara;
+import orixaoracle.potato.app.orixas.Ewa;
+import orixaoracle.potato.app.orixas.Iansa;
+import orixaoracle.potato.app.orixas.Iemanja;
+import orixaoracle.potato.app.orixas.Ifa;
+import orixaoracle.potato.app.orixas.Nana;
+import orixaoracle.potato.app.orixas.Oba;
+import orixaoracle.potato.app.orixas.Obaluaie;
+import orixaoracle.potato.app.orixas.Ogum;
+import orixaoracle.potato.app.orixas.Ossaim;
+import orixaoracle.potato.app.orixas.Oxala;
+import orixaoracle.potato.app.orixas.Oxossi;
+import orixaoracle.potato.app.orixas.Oxum;
+import orixaoracle.potato.app.orixas.Oxumare;
+import orixaoracle.potato.app.orixas.Tempo;
+import orixaoracle.potato.app.orixas.Xango;
+
 public class BaseOrixasActivity extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
@@ -151,5 +168,76 @@ public class BaseOrixasActivity extends AppCompatActivity {
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
     }
 
+    protected Intent getClassOrixa (String orixa) {
+        Intent intent = new Intent(this, Elegbara.class);
+        switch (orixa) {
+            case Orixas.ELEGBARA:
+                intent = new Intent(this, Elegbara.class);
+
+                break;
+            case Orixas.OGUM:
+                intent = new Intent(this, Ogum.class);
+
+                break;
+            case Orixas.OXUMARE:
+                intent = new Intent(this, Oxumare.class);
+
+                break;
+            case  Orixas.XANGO:
+                intent = new Intent(this, Xango.class);
+
+                break;
+            case  Orixas.OBALUAIE:
+                intent = new Intent(this, Obaluaie.class);
+
+                break;
+            case  Orixas.OXOSSI:
+                intent = new Intent(this, Oxossi.class);
+
+                break;
+
+            case Orixas.OSSAIM:
+                intent = new Intent(this, Ossaim.class);
+
+                break;
+
+            case Orixas.OBA:
+                intent = new Intent(this, Oba.class);
+                break;
+
+            case Orixas.NANA:
+                intent = new Intent(this, Nana.class);
+                break;
+            case  Orixas.OXUM:
+                intent = new Intent(this, Oxum.class);
+                break;
+            case  Orixas.YEMANJA:
+                intent = new Intent(this, Iemanja.class);
+                break;
+            case  Orixas.EWA:
+                intent = new Intent(this, Ewa.class);
+                break;
+            case  Orixas.IANSA:
+                intent = new Intent(this, Iansa.class);
+
+                break;
+            case Orixas.TEMPO:
+                intent = new Intent(this, Tempo.class);
+
+                break;
+            case  Orixas.IFA:
+                intent = new Intent(this, Ifa.class);
+
+                break;
+            case  Orixas.OXALA:
+                intent = new Intent(this, Oxala.class);
+
+                break;
+
+
+        }
+        return intent;
+
+    }
 
 }

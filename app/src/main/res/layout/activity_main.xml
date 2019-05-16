@@ -7,110 +7,156 @@
     tools:context=".MainActivity">
 
 
-
-    <ImageView
-        android:id="@+id/banner"
-        android:layout_width="367dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745"
-        app:srcCompat="@drawable/tabua" />
+       >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="350dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="48dp"
+        <ImageView
+            android:id="@+id/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
 
-        android:gravity="center_horizontal"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/buziosstart"
+            tools:layout_editor_absoluteX="-503dp"
+            tools:layout_editor_absoluteY="425dp" />
 
-        android:text="@string/text_welcome"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Benvindo(a) ao Orixa Oracle!
-Para descobrir quais os seus Orixas presse Iniciar e responda as perguntas." />
+        <TextView
+            android:id="@+id/welcometext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <Button
-        android:id="@+id/todosorixas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Ver todos os Orixas"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:baselineAligned="false"
-        android:visibility="visible"
-        android:background="@drawable/button_slection"
-        app:layout_constraintBottom_toTopOf="@+id/button_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:layout_gravity="center_horizontal|center_vertical"
 
-    <Button
-        android:id="@+id/button_start"
-        android:layout_width="95dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/text_welcome"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="visible"
+            tools:text="Benvindo(a) ao Orixa Oracle!     Para descobrir quais os seus Orixas presse Iniciar e responda às perguntas." />
 
-        android:layout_marginLeft="8dp"
-        android:background="@drawable/button_slection"
-        android:baselineAligned="false"
-        android:visibility="visible"
-        android:contentDescription="Tabua de Buzios"
-        android:text="@string/text_start"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/button_style"
-        app:layout_constraintEnd_toEndOf="@+id/button_style"
-        app:layout_constraintStart_toStartOf="@+id/button_style"
-        app:layout_constraintTop_toTopOf="@+id/button_style" />
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <ImageView
-        android:id="@+id/button_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="80dp"
+        </android.support.design.widget.AppBarLayout>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/buzios" />
+        <android.support.v7.widget.CardView
+            android:id="@+id/calendarCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="6"
+            app:cardBackgroundColor="#E6E6E6"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <!-- Main Content View -->
+
+            <LinearLayout
+                android:id="@+id/orixascommemoration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weekview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/commemorationday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/comemoration" />
+
+                <LinearLayout
+                    android:id="@+id/orixasmain"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"></LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/todosorixas"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_slection"
+                android:baselineAligned="false"
+                android:text="Ver todos os Orixas"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/button_start"
+                android:layout_width="164dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_slection"
+                android:baselineAligned="false"
+                android:contentDescription="Tabua de Buzios"
+                android:text="@string/text_start"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:visibility="visible"
 
 
-    <ImageView
-        android:id="@+id/bottom_bar"
-        android:layout_width="match_parent"
-        android:layout_height="23dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_style"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/bottom_bar" />
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/bottom_bar" />
+    </LinearLayout>
+
+
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>

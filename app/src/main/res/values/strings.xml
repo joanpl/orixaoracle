@@ -9,7 +9,7 @@
     <string name="text_start">"Iniciar Perguntas"</string>
     <string name="text_restart">"Re-Iniciar"</string>
     <string name="text_welcome">Benvindo(a) ao Orixa Oracle!
-Para descobrir quais os seus Orixas presse Iniciar e responda as perguntas.</string>
+Para descobrir quais os seus Orixas presse Iniciar e responda às perguntas.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="about_orixaoracle">Orixa Oracle foi desenvolvido por potato-corp.com. A equipa investigou e entrevistou diversos mediuns de Umbanda e Candomble, com esta informacao colectada desenvolveu uma base de dados de caracteristicas de personalidades. Esta aplicacao faz-lhe diversas perguntas que usando a informacao da base de dados usa estatistica para calcular quais os Orixas mais provaveis de acordo com a sua personalidade.</string>

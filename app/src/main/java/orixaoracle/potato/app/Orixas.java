@@ -2,6 +2,9 @@ package orixaoracle.potato.app;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.UnknownFormatConversionException;
 
@@ -15,50 +18,78 @@ class Orixas {
     public final static String  ELEGBARA = "Elegbara";
 
     private final static ArrayList<String>  ELEGBARA_NAMES = new ArrayList<String>(Arrays.asList("elegbara", "elaroie", "exu", "elegua", "eshu"));
+
+    public final static Date ELEGBARA_DAY = new GregorianCalendar(2000, Calendar.JUNE, 13).getTime();
+
     public final static String  OGUM = "Ogum";
 
     private final static ArrayList<String>  OGUM_NAMES = new ArrayList<String>(Arrays.asList("ogum"));
+    public final static Date OGUM_DAY = new GregorianCalendar(2000, Calendar.APRIL, 23).getTime();
+
     public final static String  XANGO = "Xango";
 
     private final static ArrayList<String>  XANGO_NAMES = new ArrayList<String>(Arrays.asList("xango", "chango", "shango"));
+    public final static Date XANGO_DAY = new GregorianCalendar(2000, Calendar.SEPTEMBER, 30).getTime();
+
+
     public final static String  OXUMARE = "Oxumare";
 
     private final static ArrayList<String>  OXUMARE_NAMES = new ArrayList<String>(Arrays.asList("besseim", "oxumare", "dan"));
+    public final static Date OXUMARE_DAY = new GregorianCalendar(2000, Calendar.AUGUST, 24).getTime();
+
+
+
     public final static String  OBALUAIE = "Obaluaie";
 
     private final static ArrayList<String>  OBALUAIE_NAMES = new ArrayList<String>(Arrays.asList("obaluaie", "omolu"));
+    public final static Date OBALUAIE_DAY = new GregorianCalendar(2000, Calendar.AUGUST, 16).getTime();
+
+
     public final static String  OXOSSI = "Oxossi";
 
     private final static ArrayList<String>  OXOSSI_NAMES = new ArrayList<String>(Arrays.asList("oxossi", "ode", "Oshosi"));
+    public final static Date OXOSSI_DAY = new GregorianCalendar(2000, Calendar.JANUARY, 20).getTime();
+
     public final static String  OSSAIM = "Ossaim";
     private final static ArrayList<String>  OSSAIM_NAMES = new ArrayList<String>(Arrays.asList("ossaim", "ossanha", "ossain", "osanyin", "ossaniyn", "ossanhe"));
+    public final static Date OSSAIM_DAY = new GregorianCalendar(2000, Calendar.OCTOBER, 5).getTime();
+
     public final static String  OBA = "Oba";
 
     private final static ArrayList<String>  OBA_NAMES = new ArrayList<String>(Arrays.asList("oba"));
+    public final static Date OBA_DAY = new GregorianCalendar(2000, Calendar.MAY, 30).getTime();
     public final static String  NANA = "Nana";
-
+    public final static Date NANA_DAY = new GregorianCalendar(2000, Calendar.JULY, 16).getTime();
     private final static ArrayList<String>  NANA_NAMES = new ArrayList<String>(Arrays.asList("nana", "buruku", "buluku"));
     public final static String  OXUM = "Oxum";
 
     private final static ArrayList<String>  OXUM_NAMES = new ArrayList<String>(Arrays.asList("oxum", "ochum", "oshum", "osum"));
+    public final static Date OXUM_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 8).getTime();
     public final static String  YEMANJA = "Yemanja";
-
+    public final static Date YEMANJA_DAY = new GregorianCalendar(2000, Calendar.FEBRUARY, 2).getTime();
     private final static ArrayList<String>  YEMANJA_NAMES = new ArrayList<String>(Arrays.asList("yemanja", "iemanja", "exu"));
     public final static String  EWA = "Ewa";
-
+    public final static Date EWA_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 13).getTime();
     private final static ArrayList<String>  EWA_NAMES = new ArrayList<String>(Arrays.asList("ewa", "yewa", "iyewa"));
     public final static String  IANSA = "Iansa";
 
     private final static ArrayList<String>  IANSA_NAMES = new ArrayList<String>(Arrays.asList("oya", "yansa", "iansa"));
-    public final static String  TEMPO = "Tempo";
+  // public final static Date IANSA_DAY = new GregorianCalendar(2000, Calendar.MAY, 15).getTime();
 
+
+   public final static Date IANSA_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 4).getTime();
+    public final static String  TEMPO = "Tempo";
+//    public final static Date TEMPO_DAY = new GregorianCalendar(2000,  Calendar.MAY, 15).getTime();
+  public final static Date TEMPO_DAY = new GregorianCalendar(2000, Calendar.OCTOBER, 4).getTime();
     private final static ArrayList<String>  TEMPO_NAMES = new ArrayList<String>(Arrays.asList("tempo", "iroko", "loko"));
     public final static String  IFA = "Ifa";
 
     private final static ArrayList<String>  IFA_NAMES = new ArrayList<String>(Arrays.asList("ifa", "orunmila"));
+    public final static Date IFA_DAY =   new GregorianCalendar(2000, Calendar.OCTOBER, 4).getTime();
     public final static String  OXALA = "Oxala";
-
+    public final static Date OXALA_DAY =   new GregorianCalendar(2000, Calendar.DECEMBER, 25).getTime();
     private final static ArrayList<String>  OXALA_NAMES = new ArrayList<String>(Arrays.asList("jesus", "oxala","obatala", "oxalufan", "oxalamin", "oxaguian", "orinxala"));
+
 
 
     private ArrayList<String> orixas ;
@@ -74,6 +105,133 @@ class Orixas {
 
 
     HashMap<String, ArrayList<Integer>> orixaElementsMapping;
+
+    public static ArrayList<String> getCommemorationOrixas (int day1, int month1) {
+
+        ArrayList<String> result = new ArrayList<>();
+        Calendar cal = Calendar.getInstance();
+
+        cal.setTime(OXALA_DAY);
+       int month = cal.get(Calendar.MONTH);
+       int day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OXALA);
+
+        cal.setTime(TEMPO_DAY);
+         month = cal.get(Calendar.MONTH);
+         day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(TEMPO);
+        cal.setTime(IFA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(IFA);
+
+        cal.setTime(IANSA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(IANSA);
+
+        cal.setTime(EWA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(EWA);
+
+        cal.setTime(YEMANJA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(YEMANJA);
+
+        cal.setTime(OXUM_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OXUM);
+
+        cal.setTime(NANA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(NANA);
+
+        cal.setTime(OBA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OBA);
+
+        cal.setTime(OSSAIM_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OSSAIM);
+
+        cal.setTime(OXOSSI_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OXOSSI);
+
+        cal.setTime(OBALUAIE_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OBALUAIE);
+
+        cal.setTime(XANGO_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(XANGO);
+
+        cal.setTime(OXUMARE_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OXUMARE);
+
+
+        cal.setTime(OGUM_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(OGUM);
+
+
+        cal.setTime(ELEGBARA_DAY);
+        month = cal.get(Calendar.MONTH);
+        day = cal.get(Calendar.DAY_OF_MONTH); // etc.
+
+        if(day == day1 && month == month1)
+            result.add(ELEGBARA);
+
+
+
+
+
+return result;
+
+
+    }
 
     private void initOrixaElementsMapping() {
 
@@ -171,5 +329,6 @@ class Orixas {
 
     }
 
-
 }
+
+
