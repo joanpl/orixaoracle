@@ -2,7 +2,7 @@ package orixaoracle.potato.app;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -17,23 +17,6 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.Map;
-
-import orixaoracle.potato.app.orixas.Elegbara;
-import orixaoracle.potato.app.orixas.Ewa;
-import orixaoracle.potato.app.orixas.Iansa;
-import orixaoracle.potato.app.orixas.Iemanja;
-import orixaoracle.potato.app.orixas.Ifa;
-import orixaoracle.potato.app.orixas.Nana;
-import orixaoracle.potato.app.orixas.Oba;
-import orixaoracle.potato.app.orixas.Obaluaie;
-import orixaoracle.potato.app.orixas.Ogum;
-import orixaoracle.potato.app.orixas.Ossaim;
-import orixaoracle.potato.app.orixas.Oxala;
-import orixaoracle.potato.app.orixas.Oxossi;
-import orixaoracle.potato.app.orixas.Oxum;
-import orixaoracle.potato.app.orixas.Oxumare;
-import orixaoracle.potato.app.orixas.Tempo;
-import orixaoracle.potato.app.orixas.Xango;
 
 
 public class Results extends BaseOrixasActivity {

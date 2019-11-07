@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="85dp"
 
             android:layout_weight="1"
-            app:srcCompat="@drawable/buziosstart"
+            app:srcCompat="@drawable/logo_transparent_background"
             tools:layout_editor_absoluteX="-503dp"
             tools:layout_editor_absoluteY="425dp" />
 
@@ -39,33 +39,36 @@
             android:gravity="center_horizontal"
             android:text="@string/text_welcome"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="14sp"
             android:visibility="visible"
             tools:text="Benvindo(a) ao Orixa Oracle!     Para descobrir quais os seus Orixas presse Iniciar e responda às perguntas." />
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar_main"
+
+
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/app_bar_main"
             android:layout_weight="1"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-        </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/calendarCard"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/calendarCard2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_weight="6"
-            app:cardBackgroundColor="#E6E6E6"
+            app:cardBackgroundColor="#F9F9F9"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp">
 
             <!-- Main Content View -->
 
             <LinearLayout
-                android:id="@+id/orixascommemoration"
+                android:id="@+id/weekorixas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -79,45 +82,28 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/commemorationday"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:text="@string/comemoration" />
-
-                <LinearLayout
-                    android:id="@+id/orixasmain"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"></LinearLayout>
+                    android:fontFamily="sans-serif"
+                    android:text="TextView"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <Button
                 android:id="@+id/todosorixas"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_slection"
+                android:background="@drawable/bottom_bar"
                 android:baselineAligned="false"
                 android:text="Ver todos os Orixas"
                 android:textColor="#ffffff"
@@ -132,7 +118,7 @@
 
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/button_slection"
+                android:background="@drawable/bottom_bar"
                 android:baselineAligned="false"
                 android:contentDescription="Tabua de Buzios"
                 android:text="@string/text_start"
@@ -141,6 +127,57 @@
                 android:visibility="visible" />
 
         </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/calendarCard2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="6"
+            app:cardBackgroundColor="#f9a159"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <!-- Main Content View -->
+
+            <LinearLayout
+                android:id="@+id/orixascommemoration"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/commemorationday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/comemoration"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/orixasmain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <ImageView
+                        android:id="@+id/buziodate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/icon" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <ImageView
             android:id="@+id/bottom_bar"
@@ -159,4 +196,4 @@
 
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

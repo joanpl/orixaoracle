@@ -3,23 +3,18 @@ package orixaoracle.potato.app;
 import android.content.Intent;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
-import android.util.Log;
+
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.Button;
 
-import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.File;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -34,9 +29,10 @@ public class MainActivity extends BaseOrixasActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        initAddInterstitial();
         TextView commemoration =findViewById(R.id.commemorationday);
         commemoration.setText(getComemorationDay());
+        commemoration.setGravity(Gravity.CENTER);
         addCommemorationOrixas();
 
         TextView week =findViewById(R.id.weekview);
@@ -62,7 +58,7 @@ public class MainActivity extends BaseOrixasActivity {
             }
         } );
 
-        initAddInterstitial();
+
 
 
 
@@ -72,7 +68,6 @@ public class MainActivity extends BaseOrixasActivity {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
-       // String result = getResources().getString(R.string.comemoration);
 
         ArrayList<String> results = Orixas.getCommemorationOrixas(day, month) ;
         if(results.isEmpty())
@@ -90,58 +85,60 @@ public class MainActivity extends BaseOrixasActivity {
 
             //orixascommemoration
             LinearLayout comm=  findViewById(R.id.orixascommemoration);
-            cal.setVisibility(View.GONE);
+           // cal.setVisibility(View.GONE);
             findViewById(R.id.commemorationday).setVisibility(View.GONE);
 
             comm.removeView(cal);
-// Changes the height and width to the specified *pixels*
+            // Changes the height and width to the specified *pixels*
 
             return;
         }
 
 
+        else {
+            ImageView buzio = findViewById( R.id.buziodate);
+            cal.removeView(buzio);
+            for (String r : results) {
+                //Create two columns to add as table data
+                // Create a TextView to add date
+                ImageView labelOrixa = new ImageView(this);
 
-        for (String r : results) {
-            //Create two columns to add as table data
-            // Create a TextView to add date
-            ImageView labelOrixa = new ImageView(this);
+                labelOrixa.setId(r.hashCode());
 
-            labelOrixa.setId(r.hashCode());
+                int id = getBaseContext().getResources().getIdentifier(r.toLowerCase(), "drawable", getBaseContext().getPackageName());
+                labelOrixa.setImageResource(id);
 
-            int id = getBaseContext().getResources().getIdentifier(r.toLowerCase(), "drawable", getBaseContext().getPackageName());
-            labelOrixa.setImageResource(id);
+                params.gravity = Gravity.CENTER;
+                params.width = 350;
+                params.height = 350;
 
-            params.gravity = Gravity.CENTER;
-            labelOrixa.setLayoutParams(params);
-            labelOrixa.setContentDescription(r);
-
-            labelOrixa.setMaxHeight(cal.getHeight());
+                labelOrixa.setLayoutParams(params);
+                labelOrixa.setContentDescription(r);
 
 
-            //Open activity for the Orixa
+                //Open activity for the Orixa
 
 
-            labelOrixa.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View v){
-                    Intent intent = getClassOrixa(((TextView)v).getText().toString());
-                    startActivity(intent);
-                }
-            });
-            labelOrixa.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = getClassOrixa(v.getContentDescription().toString());
-                            startActivity(intent);
-                        }
+                labelOrixa.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = getClassOrixa(((TextView) v).getText().toString());
+                        startActivity(intent);
                     }
-            );
-            cal.addView(labelOrixa);
+                });
+                labelOrixa.setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = getClassOrixa(v.getContentDescription().toString());
+                                startActivity(intent);
+                            }
+                        }
+                );
+                cal.addView(labelOrixa);
+
+            }
 
         }
-
-
-
 
     }
 
@@ -151,50 +148,55 @@ public class MainActivity extends BaseOrixasActivity {
         int month = calendar.get(Calendar.MONTH);
         String result = getResources().getString(R.string.comemoration);
 //
-//        ArrayList<String> results = Orixas.getCommemorationOrixas(day, month) ;
-//        if(results.isEmpty())
-//            return "";
-//
-//        for (String r : results) {
-//            result += r + "\n";
-//
-//        }
-//
-        return result;
+        ArrayList<String> results = Orixas.getCommemorationOrixas(day, month) ;
+        if(results.isEmpty())
+            return "";
+
+        String orixas= "";
+        for (String r : results) {
+            if(orixas.isEmpty())
+             orixas += r ;
+            else
+                orixas += ", " +r ;
+        }
+
+        return result + orixas;
     }
 
 
     public String getWeekDayOrixa () {
 
 
-        String daysArray[] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"};
+        Integer daysArray[] = { Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY,
+              Calendar.FRIDAY, Calendar.SATURDAY,Calendar.SUNDAY};
 
         Calendar calendar = Calendar.getInstance();
-        calendar.setFirstDayOfWeek(Calendar.MONDAY);
-        int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+        Integer day = calendar.get(Calendar.DAY_OF_WEEK);
+        //System.out.println("dia da semana " + day);
         String weekMessage = "";
 
-        switch (daysArray[day-1]) {
-            case "Sunday":
+        switch (day) {
+            case Calendar.SUNDAY:
                 weekMessage = getResources().getString(R.string.domingo);
                 break;
-            case "Monday":
+            case Calendar.MONDAY:
                 weekMessage = getResources().getString(R.string.segunda);
                 break;
-            case "Tuesday":
+            case Calendar.TUESDAY:
                 weekMessage = getResources().getString(R.string.terca);
                 break;
-            case "Wednesday":
+            case Calendar.WEDNESDAY:
                 weekMessage = getResources().getString(R.string.quarta);
                 break;
 
-            case "Thursday":
+            case Calendar.THURSDAY:
                 weekMessage = getResources().getString(R.string.quinta);
                 break;
-            case "Friday":
+            case Calendar.FRIDAY:
                 weekMessage = getResources().getString(R.string.sexta);
                 break;
-            case "Saturday":
+            case Calendar.SATURDAY:
                 weekMessage = getResources().getString(R.string.sabado);
                 break;
 

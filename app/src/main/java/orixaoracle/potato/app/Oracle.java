@@ -189,7 +189,7 @@ public int getCurrentQuestion() {
 
         // now let's sort the map in decreasing order of value
 
-        System.out.println("After sorting descending order......");
+        //System.out.println("After sorting descending order......");
         Map<String, Double> sortedMapDesc = sortByComparator(resultsString, DESC);
         if(MainActivity.DEBUG)
          printMap(sortedMapDesc);

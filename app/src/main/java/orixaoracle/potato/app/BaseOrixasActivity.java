@@ -2,20 +2,18 @@ package orixaoracle.potato.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
-
-import java.io.File;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import orixaoracle.potato.app.orixas.Elegbara;
 import orixaoracle.potato.app.orixas.Ewa;
@@ -40,18 +38,21 @@ public class BaseOrixasActivity extends AppCompatActivity {
 
     private Intent intent;
 
-    public static final String TEST_AD ="ca-app-pub-3940256099942544/1033173712";
-    public static final String REAL_AD1 ="ca-app-pub-8764007559480750/4687444962";
+    public static final String TEST_AD ="ca-app-pub-3940256099942544/1033173712"; //
+
+    public static final String REAL_AD1 ="ca-app-pub-8764007559480750/4687444962"; //beforeResults interstitial
+
     public static final String TEST_AD_BANNER ="ca-app-pub-3940256099942544/6300978111";
 
+    public static final String AD_BANNER_PERGUNTAS = "ca-app-pub-8764007559480750/5909584147"; //no proprio xml
 
-
-    public static final String REAL_AD2 ="ca-app-pub-8764007559480750/8045800119";
-    public static final String REAL_AD3 ="ca-app-pub-8764007559480750/8473249873";
+    public static final String REAL_AD2 ="ca-app-pub-8764007559480750/8045800119"; // results interstitial: ca-app-pub-8764007559480750/8045800119
+    public static final String REAL_AD3 ="ca-app-pub-8764007559480750/8473249873"; // before orixa: ca-app-pub-8764007559480750/8473249873
 
 
 
     public static final boolean DEBUG =false;
+    private boolean shouldLoadAds = true;
 
 
     @Override
@@ -68,25 +69,36 @@ public class BaseOrixasActivity extends AppCompatActivity {
         this.intent = setIntent;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        shouldLoadAds= true;
+    }
 
+    @Override
+    public void onStop() {
+        shouldLoadAds= false;
+        super.onStop();
+    }
     public void goToAllOrixas() {
         intent = new Intent(this, OrixasInfo.class);
         loadShowInterstitial();
-   //     startActivity(intent);
+        startActivity(intent);
 
     }
     public void goToStartActivity() {
 
         intent = new Intent(this, Perguntas.class);
+
         loadShowInterstitial();
-//        startActivity(getIntent());
+        startActivity(intent);
 
 
     }
 
     public void loadShowInterstitial() {
 
-        if (mInterstitialAd.isLoaded()) {
+        if (mInterstitialAd.isLoaded() && shouldLoadAds) {
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
@@ -139,7 +151,11 @@ public class BaseOrixasActivity extends AppCompatActivity {
 
     public void initAddInterstitial() {
         // Sample AdMob app ID: ca-app-pub-8764007559480750~7390517978
-        MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+      //  MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
         mInterstitialAd = new InterstitialAd(this);
         if(DEBUG) {
             mInterstitialAd.setAdUnitId(TEST_AD);
@@ -153,15 +169,24 @@ public class BaseOrixasActivity extends AppCompatActivity {
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int errorCode) {
+                if (DEBUG)
+                    System.out.println("Failed to load, error code: " + errorCode);
                 startActivity(intent);
             }
             @Override
             public void onAdLoaded() {
 
+                if (DEBUG)
+                    System.out.println("Ad Loaded");
                // mInterstitialAd.show();
             }
             @Override
             public void onAdClosed() {
+                super.onAdClosed();
+                if(shouldLoadAds) { //load the ad only if shouldLoadAds == true
+                    mInterstitialAd .loadAd(new AdRequest.Builder().build());
+                }
+
                 startActivity(intent);
             }
         });

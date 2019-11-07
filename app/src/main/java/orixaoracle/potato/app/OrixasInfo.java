@@ -2,16 +2,16 @@ package orixaoracle.potato.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
 
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import orixaoracle.potato.app.orixas.*;
 
@@ -27,26 +27,19 @@ public class OrixasInfo extends BaseOrixasActivity  implements View.OnClickListe
         setSupportActionBar(toolbar);
 
 
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
         mAdView = findViewById(R.id.bannerorixas);
-
-
-
-        if(MainActivity.DEBUG) {
-
-            mAdView.setAdUnitId(TEST_AD_BANNER);
-        }
-
-
-        mAdView.loadAd(new AdRequest.Builder().build());
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
     }
 
 private void loadBanner() {
-
-    if(MainActivity.DEBUG) {
-
-        mAdView.setAdUnitId(MainActivity.TEST_AD);
-    }
 
     mAdView.loadAd(new AdRequest.Builder().build());
 }

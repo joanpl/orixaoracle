@@ -25,6 +25,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 public class Perguntas extends BaseOrixasActivity {
 
@@ -85,23 +87,19 @@ public class Perguntas extends BaseOrixasActivity {
 
 
 
-        // Sample AdMob app ID: ca-app-pub-8764007559480750~7390517978
-        MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
-
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+        });
+        //  MobileAds.initialize(this, "ca-app-pub-8764007559480750~7390517978");
+        mInterstitialAd2 = new InterstitialAd(this);
 
         mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-
         mInterstitialAd2 = new InterstitialAd(this);
-        if(MainActivity.DEBUG) {
-            mInterstitialAd2.setAdUnitId(TEST_AD);
-            mAdView.setAdUnitId(TEST_AD_BANNER);
-        }
-        else {
-            mInterstitialAd2.setAdUnitId(REAL_AD2);
-        }
 
+       // mAdView.setAdUnitId(AD_BANNER_PERGUNTAS); in XML
 
+        mInterstitialAd2.setAdUnitId(REAL_AD2);
         mInterstitialAd2.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -130,7 +128,7 @@ public class Perguntas extends BaseOrixasActivity {
         });
 
 
-        mAdView.loadAd(adRequest);
+        mAdView.loadAd( new AdRequest.Builder().build());
         mInterstitialAd2.loadAd(new AdRequest.Builder().build());
 
 
@@ -144,9 +142,6 @@ public class Perguntas extends BaseOrixasActivity {
         setUpAds();
         setUpOracle();
         showDialog();
-
-
-
 
     }
 

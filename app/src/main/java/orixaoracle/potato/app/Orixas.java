@@ -19,10 +19,11 @@ class Orixas {
 
     private final static ArrayList<String>  ELEGBARA_NAMES = new ArrayList<String>(Arrays.asList("elegbara", "elaroie", "exu", "elegua", "eshu"));
 
+    //public final static Date ELEGBARA_DAY = new GregorianCalendar(2000, Calendar.NOVEMBER, 7).getTime();
+
     public final static Date ELEGBARA_DAY = new GregorianCalendar(2000, Calendar.JUNE, 13).getTime();
 
     public final static String  OGUM = "Ogum";
-
     private final static ArrayList<String>  OGUM_NAMES = new ArrayList<String>(Arrays.asList("ogum"));
     public final static Date OGUM_DAY = new GregorianCalendar(2000, Calendar.APRIL, 23).getTime();
 
@@ -55,9 +56,9 @@ class Orixas {
     public final static Date OSSAIM_DAY = new GregorianCalendar(2000, Calendar.OCTOBER, 5).getTime();
 
     public final static String  OBA = "Oba";
-
     private final static ArrayList<String>  OBA_NAMES = new ArrayList<String>(Arrays.asList("oba"));
     public final static Date OBA_DAY = new GregorianCalendar(2000, Calendar.MAY, 30).getTime();
+
     public final static String  NANA = "Nana";
     public final static Date NANA_DAY = new GregorianCalendar(2000, Calendar.JULY, 16).getTime();
     private final static ArrayList<String>  NANA_NAMES = new ArrayList<String>(Arrays.asList("nana", "buruku", "buluku"));
@@ -65,27 +66,27 @@ class Orixas {
 
     private final static ArrayList<String>  OXUM_NAMES = new ArrayList<String>(Arrays.asList("oxum", "ochum", "oshum", "osum"));
     public final static Date OXUM_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 8).getTime();
+
     public final static String  YEMANJA = "Yemanja";
     public final static Date YEMANJA_DAY = new GregorianCalendar(2000, Calendar.FEBRUARY, 2).getTime();
     private final static ArrayList<String>  YEMANJA_NAMES = new ArrayList<String>(Arrays.asList("yemanja", "iemanja", "exu"));
+
     public final static String  EWA = "Ewa";
     public final static Date EWA_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 13).getTime();
     private final static ArrayList<String>  EWA_NAMES = new ArrayList<String>(Arrays.asList("ewa", "yewa", "iyewa"));
+
     public final static String  IANSA = "Iansa";
-
     private final static ArrayList<String>  IANSA_NAMES = new ArrayList<String>(Arrays.asList("oya", "yansa", "iansa"));
-  // public final static Date IANSA_DAY = new GregorianCalendar(2000, Calendar.MAY, 15).getTime();
+    public final static Date IANSA_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 4).getTime();
 
-
-   public final static Date IANSA_DAY = new GregorianCalendar(2000, Calendar.DECEMBER, 4).getTime();
     public final static String  TEMPO = "Tempo";
-//    public final static Date TEMPO_DAY = new GregorianCalendar(2000,  Calendar.MAY, 15).getTime();
-  public final static Date TEMPO_DAY = new GregorianCalendar(2000, Calendar.OCTOBER, 4).getTime();
+    public final static Date TEMPO_DAY = new GregorianCalendar(2000, Calendar.OCTOBER, 4).getTime();
     private final static ArrayList<String>  TEMPO_NAMES = new ArrayList<String>(Arrays.asList("tempo", "iroko", "loko"));
-    public final static String  IFA = "Ifa";
 
+    public final static String  IFA = "Ifa";
     private final static ArrayList<String>  IFA_NAMES = new ArrayList<String>(Arrays.asList("ifa", "orunmila"));
     public final static Date IFA_DAY =   new GregorianCalendar(2000, Calendar.OCTOBER, 4).getTime();
+
     public final static String  OXALA = "Oxala";
     public final static Date OXALA_DAY =   new GregorianCalendar(2000, Calendar.DECEMBER, 25).getTime();
     private final static ArrayList<String>  OXALA_NAMES = new ArrayList<String>(Arrays.asList("jesus", "oxala","obatala", "oxalufan", "oxalamin", "oxaguian", "orinxala"));
