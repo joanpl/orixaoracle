@@ -54,6 +54,8 @@ Para descobrir quais os seus Orixas presse Iniciar e responda às perguntas.</st
     <string name="menu_send">Send</string>
     <string name="title_activity_navigation_orixas">NavigationOrixas</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="no">Nao</string>
+    <string name="yes">Sim</string>
 
 
 </resources>

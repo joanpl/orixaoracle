@@ -1,37 +1,27 @@
 package orixaoracle.potato.app;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import java.util.HashMap;
-
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
 public class Perguntas extends BaseOrixasActivity {
 
 
-    private HashMap<String, Boolean> respostas;
     private Oracle myOracle;
     private AdView mAdView;
 
@@ -56,15 +46,13 @@ public class Perguntas extends BaseOrixasActivity {
             e.printStackTrace();
         }
         myOracle = new Oracle(db);
-        respostas = new HashMap<>();
 
 
+        Button buttonYes = findViewById(R.id.sim);
+        buttonYes.setText(getString(R.string.yes));
 
-        Button buttonYes = (Button) findViewById(R.id.sim);
-        buttonYes.setText("Sim");
-
-        Button buttonNo = (Button) findViewById(R.id.nao);
-        buttonNo.setText("Nao");
+        Button buttonNo = findViewById(R.id.nao);
+        buttonNo.setText(getString(R.string.no));
 
         buttonYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,17 +134,15 @@ public class Perguntas extends BaseOrixasActivity {
     }
 
     public void setLevel(int lvl) {
-        if(myOracle != null)
-            myOracle.setLevel(lvl);
-        else {
+        if (myOracle == null) {
             setUpOracle();
-            myOracle.setLevel(lvl);
         }
+        myOracle.setLevel(lvl);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setMax(myOracle.getMaxQuestions());
         progressBar.setIndeterminate(false);
-        mPergunta = (TextView) findViewById(R.id.caracteristica);
+        mPergunta = findViewById(R.id.caracteristica);
         mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
 
     }
