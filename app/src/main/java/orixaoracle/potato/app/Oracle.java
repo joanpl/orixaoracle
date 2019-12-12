@@ -2,14 +2,14 @@ package orixaoracle.potato.app;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.stream.Collectors;
+
+import orixaoracle.potato.app.activities.MainActivity;
 
 /**
  * Created by jmpl on 10/4/18.

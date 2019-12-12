@@ -76,17 +76,17 @@
             android:label="Oxala"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".OrixasInfo"
+            android:name=".activities.OrixasInfoActivity"
             android:label="@string/title_activity_orixas_info"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FullscreenActivityAbout"
+            android:name=".activities.FullscreenAboutActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen_about"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -95,11 +95,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Perguntas"
-            android:parentActivityName=".MainActivity" />
+            android:name=".activities.PerguntasActivity"
+            android:parentActivityName=".activities.MainActivity" />
         <activity
-            android:name=".Results"
-            android:parentActivityName=".MainActivity" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:name=".activities.ResultsActivity"
+            android:parentActivityName=".activities.MainActivity" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8764007559480750~7390517978" />

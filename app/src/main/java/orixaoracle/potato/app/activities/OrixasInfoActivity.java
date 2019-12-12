@@ -1,11 +1,10 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -13,9 +12,25 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import orixaoracle.potato.app.orixas.*;
+import orixaoracle.potato.app.R;
+import orixaoracle.potato.app.orixas.Elegbara;
+import orixaoracle.potato.app.orixas.Ewa;
+import orixaoracle.potato.app.orixas.Iansa;
+import orixaoracle.potato.app.orixas.Iemanja;
+import orixaoracle.potato.app.orixas.Ifa;
+import orixaoracle.potato.app.orixas.Nana;
+import orixaoracle.potato.app.orixas.Oba;
+import orixaoracle.potato.app.orixas.Obaluaie;
+import orixaoracle.potato.app.orixas.Ogum;
+import orixaoracle.potato.app.orixas.Ossaim;
+import orixaoracle.potato.app.orixas.Oxala;
+import orixaoracle.potato.app.orixas.Oxossi;
+import orixaoracle.potato.app.orixas.Oxum;
+import orixaoracle.potato.app.orixas.Oxumare;
+import orixaoracle.potato.app.orixas.Tempo;
+import orixaoracle.potato.app.orixas.Xango;
 
-public class OrixasInfo extends BaseOrixasActivity  implements View.OnClickListener  {
+public class OrixasInfoActivity extends BaseOrixasActivity  implements View.OnClickListener  {
 
     private AdView mAdView;
 

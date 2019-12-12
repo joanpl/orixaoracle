@@ -1,37 +1,33 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import java.util.HashMap;
+import orixaoracle.potato.app.DialogSettings;
+import orixaoracle.potato.app.Oracle;
+import orixaoracle.potato.app.OrixaDB;
+import orixaoracle.potato.app.R;
 
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-
-public class Perguntas extends BaseOrixasActivity {
+public class PerguntasActivity extends BaseOrixasActivity {
 
 
-    private HashMap<String, Boolean> respostas;
     private Oracle myOracle;
     private AdView mAdView;
 
@@ -56,15 +52,13 @@ public class Perguntas extends BaseOrixasActivity {
             e.printStackTrace();
         }
         myOracle = new Oracle(db);
-        respostas = new HashMap<>();
 
 
+        Button buttonYes = findViewById(R.id.sim);
+        buttonYes.setText(getString(R.string.yes));
 
-        Button buttonYes = (Button) findViewById(R.id.sim);
-        buttonYes.setText("Sim");
-
-        Button buttonNo = (Button) findViewById(R.id.nao);
-        buttonNo.setText("Nao");
+        Button buttonNo = findViewById(R.id.nao);
+        buttonNo.setText(getString(R.string.no));
 
         buttonYes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +132,7 @@ public class Perguntas extends BaseOrixasActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perguntas);
-        intentResults = new Intent(this, Results.class);
+        intentResults = new Intent(this, ResultsActivity.class);
         setUpAds();
         setUpOracle();
         showDialog();
@@ -146,27 +140,27 @@ public class Perguntas extends BaseOrixasActivity {
     }
 
     public void setLevel(int lvl) {
-        if(myOracle != null)
-            myOracle.setLevel(lvl);
-        else {
+        if (myOracle == null) {
             setUpOracle();
-            myOracle.setLevel(lvl);
         }
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setMax(myOracle.getMaxQuestions());
-        progressBar.setIndeterminate(false);
-        mPergunta = (TextView) findViewById(R.id.caracteristica);
-        mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
+        myOracle.setLevel(lvl);
 
     }
 
    private void showDialog() {
-       DialogSettings customDialog = new DialogSettings(Perguntas.this);
+       DialogSettings customDialog = new DialogSettings(PerguntasActivity.this);
       // customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
        customDialog.show();
-
-
+       customDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+           @Override
+           public void onDismiss(final DialogInterface dialogInterface) {
+               progressBar = PerguntasActivity.this.findViewById(R.id.progressBar);
+               progressBar.setMax(myOracle.getMaxQuestions());
+               progressBar.setIndeterminate(false);
+               mPergunta = PerguntasActivity.this.findViewById(R.id.caracteristica);
+               mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
+           }
+       });
     }
 
 

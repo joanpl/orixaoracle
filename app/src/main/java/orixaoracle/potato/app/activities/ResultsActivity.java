@@ -1,8 +1,7 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -18,8 +17,11 @@ import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.Map;
 
+import orixaoracle.potato.app.Oracle;
+import orixaoracle.potato.app.R;
 
-public class Results extends BaseOrixasActivity {
+
+public class ResultsActivity extends BaseOrixasActivity {
     private static DecimalFormat df2 = new DecimalFormat("#.##");
 
     @Override

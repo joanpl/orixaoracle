@@ -1,10 +1,10 @@
 package orixaoracle.potato.app.orixas;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.appcompat.widget.Toolbar;
 
-import orixaoracle.potato.app.BaseOrixasActivity;
+import orixaoracle.potato.app.activities.BaseOrixasActivity;
 import orixaoracle.potato.app.R;
 
 public class Elegbara extends BaseOrixasActivity {

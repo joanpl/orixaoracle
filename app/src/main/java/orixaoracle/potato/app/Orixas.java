@@ -12,7 +12,7 @@ import java.util.UnknownFormatConversionException;
  * Created by jmpl on 10/23/18.
  */
 
-class Orixas {
+public class Orixas {
 
 
     public final static String  ELEGBARA = "Elegbara";

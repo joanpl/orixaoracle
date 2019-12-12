@@ -1,4 +1,4 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
 import android.content.Intent;
 
@@ -18,48 +18,43 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import orixaoracle.potato.app.Orixas;
+import orixaoracle.potato.app.R;
+
 
 public class MainActivity extends BaseOrixasActivity {
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initAddInterstitial();
-        TextView commemoration =findViewById(R.id.commemorationday);
+        TextView commemoration = findViewById(R.id.commemorationday);
         commemoration.setText(getComemorationDay());
         commemoration.setGravity(Gravity.CENTER);
         addCommemorationOrixas();
 
-        TextView week =findViewById(R.id.weekview);
-        week.setText( getWeekDayOrixa () );
+        TextView week = findViewById(R.id.weekview);
+        week.setText(getWeekDayOrixa());
 
 
-        Button button = (Button) findViewById(R.id.button_start);
+        Button button = findViewById(R.id.button_start);
 
-        button.setText("Iniciar");
+        button.setText(getString(R.string.startText));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToStartActivity();
             }
-        } );
+        });
 
 
-        button = (Button) findViewById(R.id.todosorixas);
+        button = findViewById(R.id.todosorixas);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 goToAllOrixas();
             }
-        } );
-
-
-
+        });
 
 
     }
@@ -69,8 +64,8 @@ public class MainActivity extends BaseOrixasActivity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int month = calendar.get(Calendar.MONTH);
 
-        ArrayList<String> results = Orixas.getCommemorationOrixas(day, month) ;
-        if(results.isEmpty())
+        ArrayList<String> results = Orixas.getCommemorationOrixas(day, month);
+        if (results.isEmpty())
             return;
 
         LinearLayout cal = findViewById(R.id.orixasmain);
@@ -81,22 +76,18 @@ public class MainActivity extends BaseOrixasActivity {
 
         int size = results.size();
 
-        if(size==0){
+        if (size == 0) {
 
             //orixascommemoration
-            LinearLayout comm=  findViewById(R.id.orixascommemoration);
-           // cal.setVisibility(View.GONE);
+            LinearLayout comm = findViewById(R.id.orixascommemoration);
+            // cal.setVisibility(View.GONE);
             findViewById(R.id.commemorationday).setVisibility(View.GONE);
 
             comm.removeView(cal);
             // Changes the height and width to the specified *pixels*
 
-            return;
-        }
-
-
-        else {
-            ImageView buzio = findViewById( R.id.buziodate);
+        } else {
+            ImageView buzio = findViewById(R.id.buziodate);
             cal.removeView(buzio);
             for (String r : results) {
                 //Create two columns to add as table data
@@ -148,67 +139,50 @@ public class MainActivity extends BaseOrixasActivity {
         int month = calendar.get(Calendar.MONTH);
         String result = getResources().getString(R.string.comemoration);
 //
-        ArrayList<String> results = Orixas.getCommemorationOrixas(day, month) ;
-        if(results.isEmpty())
+        ArrayList<String> results = Orixas.getCommemorationOrixas(day, month);
+        if (results.isEmpty())
             return "";
 
-        String orixas= "";
+        StringBuilder orixas = new StringBuilder();
         for (String r : results) {
-            if(orixas.isEmpty())
-             orixas += r ;
+            if (orixas.length() == 0)
+                orixas.append(r);
             else
-                orixas += ", " +r ;
+                orixas.append(", ").append(r);
         }
 
         return result + orixas;
     }
 
 
-    public String getWeekDayOrixa () {
+    public String getWeekDayOrixa() {
 
-
-        Integer daysArray[] = { Calendar.MONDAY, Calendar.TUESDAY, Calendar.WEDNESDAY, Calendar.THURSDAY,
-              Calendar.FRIDAY, Calendar.SATURDAY,Calendar.SUNDAY};
 
         Calendar calendar = Calendar.getInstance();
 
-        Integer day = calendar.get(Calendar.DAY_OF_WEEK);
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
         //System.out.println("dia da semana " + day);
-        String weekMessage = "";
 
         switch (day) {
             case Calendar.SUNDAY:
-                weekMessage = getResources().getString(R.string.domingo);
-                break;
+                return getResources().getString(R.string.domingo);
             case Calendar.MONDAY:
-                weekMessage = getResources().getString(R.string.segunda);
-                break;
+                return getResources().getString(R.string.segunda);
             case Calendar.TUESDAY:
-                weekMessage = getResources().getString(R.string.terca);
-                break;
+                return getResources().getString(R.string.terca);
             case Calendar.WEDNESDAY:
-                weekMessage = getResources().getString(R.string.quarta);
-                break;
+                return getResources().getString(R.string.quarta);
 
             case Calendar.THURSDAY:
-                weekMessage = getResources().getString(R.string.quinta);
-                break;
+                return getResources().getString(R.string.quinta);
             case Calendar.FRIDAY:
-                weekMessage = getResources().getString(R.string.sexta);
-                break;
+                return getResources().getString(R.string.sexta);
             case Calendar.SATURDAY:
-                weekMessage = getResources().getString(R.string.sabado);
-                break;
-
-
+                return getResources().getString(R.string.sabado);
         }
 
-        return weekMessage;
+        return "";
     }
-
-
-
-
 
 
 }

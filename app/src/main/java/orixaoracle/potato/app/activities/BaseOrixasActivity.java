@@ -1,12 +1,13 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -15,6 +16,8 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import orixaoracle.potato.app.Orixas;
+import orixaoracle.potato.app.R;
 import orixaoracle.potato.app.orixas.Elegbara;
 import orixaoracle.potato.app.orixas.Ewa;
 import orixaoracle.potato.app.orixas.Iansa;
@@ -81,14 +84,14 @@ public class BaseOrixasActivity extends AppCompatActivity {
         super.onStop();
     }
     public void goToAllOrixas() {
-        intent = new Intent(this, OrixasInfo.class);
+        intent = new Intent(this, OrixasInfoActivity.class);
         loadShowInterstitial();
         startActivity(intent);
 
     }
     public void goToStartActivity() {
 
-        intent = new Intent(this, Perguntas.class);
+        intent = new Intent(this, PerguntasActivity.class);
 
         loadShowInterstitial();
         startActivity(intent);
@@ -120,7 +123,7 @@ public class BaseOrixasActivity extends AppCompatActivity {
         switch (id){
             case R.id.aboutus:
                // Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
-                Intent intentAbout = new Intent(this, FullscreenActivityAbout.class);
+                Intent intentAbout = new Intent(this, FullscreenAboutActivity.class);
                 startActivity(intentAbout);
                 return true;
 
