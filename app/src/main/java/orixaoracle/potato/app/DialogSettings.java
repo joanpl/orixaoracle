@@ -9,12 +9,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import orixaoracle.potato.app.activities.PerguntasActivity;
+
 
 public class DialogSettings extends Dialog implements
         android.view.View.OnClickListener  {
 
-    public Activity activity;
-    public Button btnYes;
+    private Activity activity;
     private int lvl = 2;
 
 
@@ -25,13 +26,8 @@ public class DialogSettings extends Dialog implements
         setContentView(R.layout.activity_dialog_settings);
 
 
-
-
-        btnYes = (Button) findViewById(R.id.continue_perguntas);
-
+        Button btnYes = findViewById(R.id.continue_perguntas);
         btnYes.setOnClickListener(this);
-
-
     }
 
 
@@ -43,33 +39,19 @@ public class DialogSettings extends Dialog implements
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.continue_perguntas:
-
-              RadioButton simples= findViewById( R.id.simples);
-                RadioButton normal= findViewById( R.id.normal);
-              if(simples.isChecked())
-                  ((Perguntas) activity).setLevel(0);
-              else if(normal.isChecked())  ((Perguntas) activity).setLevel(1);
-              //  activity.finish();
-                else((Perguntas) activity).setLevel(2);
-                dismiss();
-                break;
-
-            default:
-                dismiss();
-                break;
+        if (v.getId() == R.id.continue_perguntas) {
+            RadioButton simples = findViewById(R.id.simples);
+            RadioButton normal = findViewById(R.id.normal);
+            if (simples.isChecked()) {
+                ((PerguntasActivity) activity).setLevel(0);
+            } else if (normal.isChecked()) {
+                ((PerguntasActivity) activity).setLevel(1);
+                //  activity.finish();
+            } else {
+                ((PerguntasActivity) activity).setLevel(2);
+            }
         }
+
         dismiss();
     }
-
-
-    protected void setLevel(int lvl) {
-        this.lvl = lvl;
-    }
-
-    public int getLvl() {
-        return this.lvl;
-    }
-
 }

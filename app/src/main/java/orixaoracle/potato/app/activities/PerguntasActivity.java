@@ -1,5 +1,6 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +20,12 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Perguntas extends BaseOrixasActivity {
+import orixaoracle.potato.app.DialogSettings;
+import orixaoracle.potato.app.Oracle;
+import orixaoracle.potato.app.OrixaDB;
+import orixaoracle.potato.app.R;
+
+public class PerguntasActivity extends BaseOrixasActivity {
 
 
     private Oracle myOracle;
@@ -126,7 +132,7 @@ public class Perguntas extends BaseOrixasActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perguntas);
-        intentResults = new Intent(this, Results.class);
+        intentResults = new Intent(this, ResultsActivity.class);
         setUpAds();
         setUpOracle();
         showDialog();
@@ -139,20 +145,22 @@ public class Perguntas extends BaseOrixasActivity {
         }
         myOracle.setLevel(lvl);
 
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setMax(myOracle.getMaxQuestions());
-        progressBar.setIndeterminate(false);
-        mPergunta = findViewById(R.id.caracteristica);
-        mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
-
     }
 
    private void showDialog() {
-       DialogSettings customDialog = new DialogSettings(Perguntas.this);
+       DialogSettings customDialog = new DialogSettings(PerguntasActivity.this);
       // customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
        customDialog.show();
-
-
+       customDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+           @Override
+           public void onDismiss(final DialogInterface dialogInterface) {
+               progressBar = PerguntasActivity.this.findViewById(R.id.progressBar);
+               progressBar.setMax(myOracle.getMaxQuestions());
+               progressBar.setIndeterminate(false);
+               mPergunta = PerguntasActivity.this.findViewById(R.id.caracteristica);
+               mPergunta.setText(myOracle.getNext()); // if it's empty i need to figure out what to show.
+           }
+       });
     }
 
 

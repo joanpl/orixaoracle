@@ -1,4 +1,4 @@
-package orixaoracle.potato.app;
+package orixaoracle.potato.app.activities;
 
 import android.content.Intent;
 
@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import orixaoracle.potato.app.Orixas;
+import orixaoracle.potato.app.R;
 
 
 public class MainActivity extends BaseOrixasActivity {
